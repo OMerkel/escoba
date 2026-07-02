@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="1200" viewBox="0 0 750 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Tres de Espadas</title>
+  <desc id="desc">Traditional-style Baraja Espanola playing card.</desc>
+  <defs>
+    <linearGradient id="paperGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffdf6"/>
+      <stop offset="100%" stop-color="#f5eddc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+    <rect x="18" y="18" width="714" height="1164" rx="34" fill="url(#paperGradient)" stroke="#1f1b16" stroke-width="5" filter="url(#shadow)"/>
+  <rect x="40" y="40" width="670" height="1120" rx="24" fill="none" stroke="#39596f" stroke-width="4"/>
+<g transform="translate(100 140) rotate(0)">
+  <path d="M 0 -95.2 L 13.6 -29.92 L 0 19.04 L -13.6 -29.92 Z" fill="#bdd0dc" stroke="#243746" stroke-width="4.08"/>
+  <rect x="-35.36" y="13.6" width="71" height="12" rx="4" fill="#436b83" stroke="#243746" stroke-width="4.08"/>
+  <rect x="-24.48" y="24.48" width="49" height="41" rx="5" fill="#d2a357" stroke="#243746" stroke-width="4.08"/>
+  <circle cy="75" r="11" fill="#436b83" stroke="#243746" stroke-width="4.08"/>
+</g>
+  <g transform="translate(750 1198) rotate(180)">
+<g transform="translate(100 140) rotate(0)">
+  <path d="M 0 -95.2 L 13.6 -29.92 L 0 19.04 L -13.6 -29.92 Z" fill="#bdd0dc" stroke="#243746" stroke-width="4.08"/>
+  <rect x="-35.36" y="13.6" width="71" height="12" rx="4" fill="#436b83" stroke="#243746" stroke-width="4.08"/>
+  <rect x="-24.48" y="24.48" width="49" height="41" rx="5" fill="#d2a357" stroke="#243746" stroke-width="4.08"/>
+  <circle cy="75" r="11" fill="#436b83" stroke="#243746" stroke-width="4.08"/>
+</g>
+  </g>
+  <text x="620" y="200" text-anchor="middle" font-size="212" font-family="Georgia, Times New Roman, serif" font-weight="700" fill="#243746">3</text>
+  <g transform="translate(130 1000) rotate(180)">
+    <text x="0" y="0" text-anchor="middle" font-size="212" font-family="Georgia, Times New Roman, serif" font-weight="700" fill="#243746">3</text>
+  </g>
+<g transform="translate(375 320) rotate(0)">
+  <path d="M 0 -133 L 19 -41.8 L 0 26.6 L -19 -41.8 Z" fill="#bdd0dc" stroke="#243746" stroke-width="5.7"/>
+  <rect x="-49.4" y="19" width="99" height="17" rx="6" fill="#436b83" stroke="#243746" stroke-width="5.7"/>
+  <rect x="-34.2" y="34.2" width="68" height="57" rx="8" fill="#d2a357" stroke="#243746" stroke-width="5.7"/>
+  <circle cy="104" r="15" fill="#436b83" stroke="#243746" stroke-width="5.7"/>
+</g>
+<g transform="translate(375 600) rotate(-45)">
+  <path d="M 0 -199.5 L 28.5 -62.7 L 0 39.9 L -28.5 -62.7 Z" fill="#bdd0dc" stroke="#243746" stroke-width="8.55"/>
+  <rect x="-74.1" y="28.5" width="148" height="26" rx="9" fill="#436b83" stroke="#243746" stroke-width="8.55"/>
+  <rect x="-51.3" y="51.3" width="103" height="86" rx="11" fill="#d2a357" stroke="#243746" stroke-width="8.55"/>
+  <circle cy="157" r="23" fill="#436b83" stroke="#243746" stroke-width="8.55"/>
+</g>
+<g transform="translate(375 880) rotate(180)">
+  <path d="M 0 -133 L 19 -41.8 L 0 26.6 L -19 -41.8 Z" fill="#bdd0dc" stroke="#243746" stroke-width="5.7"/>
+  <rect x="-49.4" y="19" width="99" height="17" rx="6" fill="#436b83" stroke="#243746" stroke-width="5.7"/>
+  <rect x="-34.2" y="34.2" width="68" height="57" rx="8" fill="#d2a357" stroke="#243746" stroke-width="5.7"/>
+  <circle cy="104" r="15" fill="#436b83" stroke="#243746" stroke-width="5.7"/>
+</g>
+</svg>

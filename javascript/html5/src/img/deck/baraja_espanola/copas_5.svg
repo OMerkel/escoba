@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="1200" viewBox="0 0 750 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Cinco de Copas</title>
+  <desc id="desc">Traditional-style Baraja Espanola playing card.</desc>
+  <defs>
+    <linearGradient id="paperGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffdf6"/>
+      <stop offset="100%" stop-color="#f5eddc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+    <rect x="18" y="18" width="714" height="1164" rx="34" fill="url(#paperGradient)" stroke="#1f1b16" stroke-width="5" filter="url(#shadow)"/>
+  <rect x="40" y="40" width="670" height="1120" rx="24" fill="none" stroke="#7f2424" stroke-width="4"/>
+<g transform="translate(100 140) rotate(0)">
+  <path d="M -40.8 -65.28 C -40.8 -24.48, -24.48 5.44, 0 13.6 C 24.48 5.44, 40.8 -24.48, 40.8 -65.28 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M -24.48 -65.28 C -13.6 -89.76, 13.6 -89.76, 24.48 -65.28" fill="none" stroke="#a3352f" stroke-width="4.08"/>
+  <path d="M -8.16 13.6 L -16.32 51.68 L 16.32 51.68 L 8.16 13.6 Z" fill="#a3352f" stroke="#5d1717" stroke-width="4.08"/>
+  <rect x="-35.36" y="51.68" width="71" height="14" rx="4" fill="#a3352f" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M -35.36 -38.08 C -48.96 -29.92, -51.68 -5.44, -32.64 5.44" fill="none" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M 35.36 -38.08 C 48.96 -29.92, 51.68 -5.44, 32.64 5.44" fill="none" stroke="#5d1717" stroke-width="4.08"/>
+</g>
+  <g transform="translate(750 1198) rotate(180)">
+<g transform="translate(100 140) rotate(0)">
+  <path d="M -40.8 -65.28 C -40.8 -24.48, -24.48 5.44, 0 13.6 C 24.48 5.44, 40.8 -24.48, 40.8 -65.28 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M -24.48 -65.28 C -13.6 -89.76, 13.6 -89.76, 24.48 -65.28" fill="none" stroke="#a3352f" stroke-width="4.08"/>
+  <path d="M -8.16 13.6 L -16.32 51.68 L 16.32 51.68 L 8.16 13.6 Z" fill="#a3352f" stroke="#5d1717" stroke-width="4.08"/>
+  <rect x="-35.36" y="51.68" width="71" height="14" rx="4" fill="#a3352f" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M -35.36 -38.08 C -48.96 -29.92, -51.68 -5.44, -32.64 5.44" fill="none" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M 35.36 -38.08 C 48.96 -29.92, 51.68 -5.44, 32.64 5.44" fill="none" stroke="#5d1717" stroke-width="4.08"/>
+</g>
+  </g>
+  <text x="620" y="200" text-anchor="middle" font-size="212" font-family="Georgia, Times New Roman, serif" font-weight="700" fill="#5d1717">5</text>
+  <g transform="translate(130 1000) rotate(180)">
+    <text x="0" y="0" text-anchor="middle" font-size="212" font-family="Georgia, Times New Roman, serif" font-weight="700" fill="#5d1717">5</text>
+  </g>
+<g transform="translate(260 340) rotate(0)">
+  <path d="M -52.8 -84.48 C -52.8 -31.68, -31.68 7.04, 0 17.6 C 31.68 7.04, 52.8 -31.68, 52.8 -84.48 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M -31.68 -84.48 C -17.6 -116.16, 17.6 -116.16, 31.68 -84.48" fill="none" stroke="#a3352f" stroke-width="5.28"/>
+  <path d="M -10.56 17.6 L -21.12 66.88 L 21.12 66.88 L 10.56 17.6 Z" fill="#a3352f" stroke="#5d1717" stroke-width="5.28"/>
+  <rect x="-45.76" y="66.88" width="92" height="18" rx="5" fill="#a3352f" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M -45.76 -49.28 C -63.36 -38.72, -66.88 -7.04, -42.24 7.04" fill="none" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M 45.76 -49.28 C 63.36 -38.72, 66.88 -7.04, 42.24 7.04" fill="none" stroke="#5d1717" stroke-width="5.28"/>
+</g>
+<g transform="translate(490 340) rotate(0)">
+  <path d="M -52.8 -84.48 C -52.8 -31.68, -31.68 7.04, 0 17.6 C 31.68 7.04, 52.8 -31.68, 52.8 -84.48 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M -31.68 -84.48 C -17.6 -116.16, 17.6 -116.16, 31.68 -84.48" fill="none" stroke="#a3352f" stroke-width="5.28"/>
+  <path d="M -10.56 17.6 L -21.12 66.88 L 21.12 66.88 L 10.56 17.6 Z" fill="#a3352f" stroke="#5d1717" stroke-width="5.28"/>
+  <rect x="-45.76" y="66.88" width="92" height="18" rx="5" fill="#a3352f" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M -45.76 -49.28 C -63.36 -38.72, -66.88 -7.04, -42.24 7.04" fill="none" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M 45.76 -49.28 C 63.36 -38.72, 66.88 -7.04, 42.24 7.04" fill="none" stroke="#5d1717" stroke-width="5.28"/>
+</g>
+<g transform="translate(375 600) rotate(0)">
+  <path d="M -79.2 -126.72 C -79.2 -47.52, -47.52 10.56, 0 26.4 C 47.52 10.56, 79.2 -47.52, 79.2 -126.72 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="7.92"/>
+  <path d="M -47.52 -126.72 C -26.4 -174.24, 26.4 -174.24, 47.52 -126.72" fill="none" stroke="#a3352f" stroke-width="7.92"/>
+  <path d="M -15.84 26.4 L -31.68 100.32 L 31.68 100.32 L 15.84 26.4 Z" fill="#a3352f" stroke="#5d1717" stroke-width="7.92"/>
+  <rect x="-68.64" y="100.32" width="137" height="26" rx="8" fill="#a3352f" stroke="#5d1717" stroke-width="7.92"/>
+  <path d="M -68.64 -73.92 C -95.04 -58.08, -100.32 -10.56, -63.36 10.56" fill="none" stroke="#5d1717" stroke-width="7.92"/>
+  <path d="M 68.64 -73.92 C 95.04 -58.08, 100.32 -10.56, 63.36 10.56" fill="none" stroke="#5d1717" stroke-width="7.92"/>
+</g>
+<g transform="translate(260 860) rotate(180)">
+  <path d="M -52.8 -84.48 C -52.8 -31.68, -31.68 7.04, 0 17.6 C 31.68 7.04, 52.8 -31.68, 52.8 -84.48 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M -31.68 -84.48 C -17.6 -116.16, 17.6 -116.16, 31.68 -84.48" fill="none" stroke="#a3352f" stroke-width="5.28"/>
+  <path d="M -10.56 17.6 L -21.12 66.88 L 21.12 66.88 L 10.56 17.6 Z" fill="#a3352f" stroke="#5d1717" stroke-width="5.28"/>
+  <rect x="-45.76" y="66.88" width="92" height="18" rx="5" fill="#a3352f" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M -45.76 -49.28 C -63.36 -38.72, -66.88 -7.04, -42.24 7.04" fill="none" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M 45.76 -49.28 C 63.36 -38.72, 66.88 -7.04, 42.24 7.04" fill="none" stroke="#5d1717" stroke-width="5.28"/>
+</g>
+<g transform="translate(490 860) rotate(180)">
+  <path d="M -52.8 -84.48 C -52.8 -31.68, -31.68 7.04, 0 17.6 C 31.68 7.04, 52.8 -31.68, 52.8 -84.48 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M -31.68 -84.48 C -17.6 -116.16, 17.6 -116.16, 31.68 -84.48" fill="none" stroke="#a3352f" stroke-width="5.28"/>
+  <path d="M -10.56 17.6 L -21.12 66.88 L 21.12 66.88 L 10.56 17.6 Z" fill="#a3352f" stroke="#5d1717" stroke-width="5.28"/>
+  <rect x="-45.76" y="66.88" width="92" height="18" rx="5" fill="#a3352f" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M -45.76 -49.28 C -63.36 -38.72, -66.88 -7.04, -42.24 7.04" fill="none" stroke="#5d1717" stroke-width="5.28"/>
+  <path d="M 45.76 -49.28 C 63.36 -38.72, 66.88 -7.04, 42.24 7.04" fill="none" stroke="#5d1717" stroke-width="5.28"/>
+</g>
+</svg>

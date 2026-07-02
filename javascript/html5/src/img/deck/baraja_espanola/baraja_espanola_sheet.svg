@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="2920" viewBox="0 0 1120 2920">
+    <rect width="1120" height="2920" fill="#f6efdf"/>
+    <text x="560" y="52" text-anchor="middle" font-size="32" font-family="Georgia, Times New Roman, serif" letter-spacing="4" fill="#4e3723">BARAJA ESPANOLA</text>
+    <text x="560" y="82" text-anchor="middle" font-size="15" font-family="Georgia, Times New Roman, serif" fill="#715740">Traditional-style 40-card SVG deck preview</text>
+  <g transform="translate(76 96)">
+    <image href="oros_as.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">As de Oros</text>
+  </g>
+  <g transform="translate(280 96)">
+    <image href="oros_2.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Dos de Oros</text>
+  </g>
+  <g transform="translate(484 96)">
+    <image href="oros_3.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Tres de Oros</text>
+  </g>
+  <g transform="translate(688 96)">
+    <image href="oros_4.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Cuatro de Oros</text>
+  </g>
+  <g transform="translate(892 96)">
+    <image href="oros_5.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Cinco de Oros</text>
+  </g>
+  <g transform="translate(76 402)">
+    <image href="oros_6.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Seis de Oros</text>
+  </g>
+  <g transform="translate(280 402)">
+    <image href="oros_7.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Siete de Oros</text>
+  </g>
+  <g transform="translate(484 402)">
+    <image href="oros_sota.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Sota de Oros</text>
+  </g>
+  <g transform="translate(688 402)">
+    <image href="oros_caballo.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Caballo de Oros</text>
+  </g>
+  <g transform="translate(892 402)">
+    <image href="oros_rey.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Rey de Oros</text>
+  </g>
+  <g transform="translate(76 708)">
+    <image href="copas_as.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">As de Copas</text>
+  </g>
+  <g transform="translate(280 708)">
+    <image href="copas_2.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Dos de Copas</text>
+  </g>
+  <g transform="translate(484 708)">
+    <image href="copas_3.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Tres de Copas</text>
+  </g>
+  <g transform="translate(688 708)">
+    <image href="copas_4.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Cuatro de Copas</text>
+  </g>
+  <g transform="translate(892 708)">
+    <image href="copas_5.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Cinco de Copas</text>
+  </g>
+  <g transform="translate(76 1014)">
+    <image href="copas_6.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Seis de Copas</text>
+  </g>
+  <g transform="translate(280 1014)">
+    <image href="copas_7.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Siete de Copas</text>
+  </g>
+  <g transform="translate(484 1014)">
+    <image href="copas_sota.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Sota de Copas</text>
+  </g>
+  <g transform="translate(688 1014)">
+    <image href="copas_caballo.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Caballo de Copas</text>
+  </g>
+  <g transform="translate(892 1014)">
+    <image href="copas_rey.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Rey de Copas</text>
+  </g>
+  <g transform="translate(76 1320)">
+    <image href="espadas_as.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">As de Espadas</text>
+  </g>
+  <g transform="translate(280 1320)">
+    <image href="espadas_2.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Dos de Espadas</text>
+  </g>
+  <g transform="translate(484 1320)">
+    <image href="espadas_3.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Tres de Espadas</text>
+  </g>
+  <g transform="translate(688 1320)">
+    <image href="espadas_4.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Cuatro de Espadas</text>
+  </g>
+  <g transform="translate(892 1320)">
+    <image href="espadas_5.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Cinco de Espadas</text>
+  </g>
+  <g transform="translate(76 1626)">
+    <image href="espadas_6.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Seis de Espadas</text>
+  </g>
+  <g transform="translate(280 1626)">
+    <image href="espadas_7.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Siete de Espadas</text>
+  </g>
+  <g transform="translate(484 1626)">
+    <image href="espadas_sota.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Sota de Espadas</text>
+  </g>
+  <g transform="translate(688 1626)">
+    <image href="espadas_caballo.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Caballo de Espadas</text>
+  </g>
+  <g transform="translate(892 1626)">
+    <image href="espadas_rey.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Rey de Espadas</text>
+  </g>
+  <g transform="translate(76 1932)">
+    <image href="bastos_as.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">As de Bastos</text>
+  </g>
+  <g transform="translate(280 1932)">
+    <image href="bastos_2.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Dos de Bastos</text>
+  </g>
+  <g transform="translate(484 1932)">
+    <image href="bastos_3.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Tres de Bastos</text>
+  </g>
+  <g transform="translate(688 1932)">
+    <image href="bastos_4.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Cuatro de Bastos</text>
+  </g>
+  <g transform="translate(892 1932)">
+    <image href="bastos_5.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Cinco de Bastos</text>
+  </g>
+  <g transform="translate(76 2238)">
+    <image href="bastos_6.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Seis de Bastos</text>
+  </g>
+  <g transform="translate(280 2238)">
+    <image href="bastos_7.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Siete de Bastos</text>
+  </g>
+  <g transform="translate(484 2238)">
+    <image href="bastos_sota.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Sota de Bastos</text>
+  </g>
+  <g transform="translate(688 2238)">
+    <image href="bastos_caballo.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Caballo de Bastos</text>
+  </g>
+  <g transform="translate(892 2238)">
+    <image href="bastos_rey.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Rey de Bastos</text>
+  </g>
+  <g transform="translate(470 2562)">
+    <image href="baraja_espanola_back.svg" x="0" y="0" width="180" height="288"/>
+    <text x="90" y="308" text-anchor="middle" font-size="14" font-family="Georgia, Times New Roman, serif" fill="#3b3025">Card Back</text>
+  </g>
+</svg>

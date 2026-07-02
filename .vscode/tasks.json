@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Generate Baraja Espanola Deck",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "generate_baraja_espanola.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}\\javascript\\html5\\src\\img\\deck\\baraja_espanola"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

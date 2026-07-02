@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="1200" viewBox="0 0 750 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Cuatro de Oros</title>
+  <desc id="desc">Traditional-style Baraja Espanola playing card.</desc>
+  <defs>
+    <linearGradient id="paperGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffdf6"/>
+      <stop offset="100%" stop-color="#f5eddc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+    <rect x="18" y="18" width="714" height="1164" rx="34" fill="url(#paperGradient)" stroke="#1f1b16" stroke-width="5" filter="url(#shadow)"/>
+  <rect x="40" y="40" width="670" height="1120" rx="24" fill="none" stroke="#8f6713" stroke-width="4"/>
+<g transform="translate(100 140) rotate(0)">
+  <circle r="62.56" fill="#f4d78a" stroke="#784b0b" stroke-width="4.08"/>
+  <circle r="48.96" fill="none" stroke="#c28a1e" stroke-width="4.08"/>
+  <circle r="35.36" fill="#fbf4d9" stroke="#784b0b" stroke-width="4.08"/>
+  <path d="M 0 -24.48 L 24.48 0 L 0 24.48 L -24.48 0 Z" fill="#c28a1e" stroke="#784b0b" stroke-width="4.08"/>
+  <path d="M -24.48 0 L 0 -24.48 L 24.48 0 L 0 24.48 Z" fill="none" stroke="#784b0b" stroke-width="4.08"/>
+</g>
+  <g transform="translate(750 1198) rotate(180)">
+<g transform="translate(100 140) rotate(0)">
+  <circle r="62.56" fill="#f4d78a" stroke="#784b0b" stroke-width="4.08"/>
+  <circle r="48.96" fill="none" stroke="#c28a1e" stroke-width="4.08"/>
+  <circle r="35.36" fill="#fbf4d9" stroke="#784b0b" stroke-width="4.08"/>
+  <path d="M 0 -24.48 L 24.48 0 L 0 24.48 L -24.48 0 Z" fill="#c28a1e" stroke="#784b0b" stroke-width="4.08"/>
+  <path d="M -24.48 0 L 0 -24.48 L 24.48 0 L 0 24.48 Z" fill="none" stroke="#784b0b" stroke-width="4.08"/>
+</g>
+  </g>
+  <text x="620" y="200" text-anchor="middle" font-size="212" font-family="Georgia, Times New Roman, serif" font-weight="700" fill="#784b0b">4</text>
+  <g transform="translate(130 1000) rotate(180)">
+    <text x="0" y="0" text-anchor="middle" font-size="212" font-family="Georgia, Times New Roman, serif" font-weight="700" fill="#784b0b">4</text>
+  </g>
+<g transform="translate(260 340) rotate(0)">
+  <circle r="82.8" fill="#f4d78a" stroke="#784b0b" stroke-width="5.4"/>
+  <circle r="64.8" fill="none" stroke="#c28a1e" stroke-width="5.4"/>
+  <circle r="46.8" fill="#fbf4d9" stroke="#784b0b" stroke-width="5.4"/>
+  <path d="M 0 -32.4 L 32.4 0 L 0 32.4 L -32.4 0 Z" fill="#c28a1e" stroke="#784b0b" stroke-width="5.4"/>
+  <path d="M -32.4 0 L 0 -32.4 L 32.4 0 L 0 32.4 Z" fill="none" stroke="#784b0b" stroke-width="5.4"/>
+</g>
+<g transform="translate(490 340) rotate(0)">
+  <circle r="82.8" fill="#f4d78a" stroke="#784b0b" stroke-width="5.4"/>
+  <circle r="64.8" fill="none" stroke="#c28a1e" stroke-width="5.4"/>
+  <circle r="46.8" fill="#fbf4d9" stroke="#784b0b" stroke-width="5.4"/>
+  <path d="M 0 -32.4 L 32.4 0 L 0 32.4 L -32.4 0 Z" fill="#c28a1e" stroke="#784b0b" stroke-width="5.4"/>
+  <path d="M -32.4 0 L 0 -32.4 L 32.4 0 L 0 32.4 Z" fill="none" stroke="#784b0b" stroke-width="5.4"/>
+</g>
+<g transform="translate(260 860) rotate(180)">
+  <circle r="82.8" fill="#f4d78a" stroke="#784b0b" stroke-width="5.4"/>
+  <circle r="64.8" fill="none" stroke="#c28a1e" stroke-width="5.4"/>
+  <circle r="46.8" fill="#fbf4d9" stroke="#784b0b" stroke-width="5.4"/>
+  <path d="M 0 -32.4 L 32.4 0 L 0 32.4 L -32.4 0 Z" fill="#c28a1e" stroke="#784b0b" stroke-width="5.4"/>
+  <path d="M -32.4 0 L 0 -32.4 L 32.4 0 L 0 32.4 Z" fill="none" stroke="#784b0b" stroke-width="5.4"/>
+</g>
+<g transform="translate(490 860) rotate(180)">
+  <circle r="82.8" fill="#f4d78a" stroke="#784b0b" stroke-width="5.4"/>
+  <circle r="64.8" fill="none" stroke="#c28a1e" stroke-width="5.4"/>
+  <circle r="46.8" fill="#fbf4d9" stroke="#784b0b" stroke-width="5.4"/>
+  <path d="M 0 -32.4 L 32.4 0 L 0 32.4 L -32.4 0 Z" fill="#c28a1e" stroke="#784b0b" stroke-width="5.4"/>
+  <path d="M -32.4 0 L 0 -32.4 L 32.4 0 L 0 32.4 Z" fill="none" stroke="#784b0b" stroke-width="5.4"/>
+</g>
+</svg>

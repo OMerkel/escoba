@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="1200" viewBox="0 0 750 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Siete de Copas</title>
+  <desc id="desc">Traditional-style Baraja Espanola playing card.</desc>
+  <defs>
+    <linearGradient id="paperGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffdf6"/>
+      <stop offset="100%" stop-color="#f5eddc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+    <rect x="18" y="18" width="714" height="1164" rx="34" fill="url(#paperGradient)" stroke="#1f1b16" stroke-width="5" filter="url(#shadow)"/>
+  <rect x="40" y="40" width="670" height="1120" rx="24" fill="none" stroke="#7f2424" stroke-width="4"/>
+<g transform="translate(100 140) rotate(0)">
+  <path d="M -40.8 -65.28 C -40.8 -24.48, -24.48 5.44, 0 13.6 C 24.48 5.44, 40.8 -24.48, 40.8 -65.28 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M -24.48 -65.28 C -13.6 -89.76, 13.6 -89.76, 24.48 -65.28" fill="none" stroke="#a3352f" stroke-width="4.08"/>
+  <path d="M -8.16 13.6 L -16.32 51.68 L 16.32 51.68 L 8.16 13.6 Z" fill="#a3352f" stroke="#5d1717" stroke-width="4.08"/>
+  <rect x="-35.36" y="51.68" width="71" height="14" rx="4" fill="#a3352f" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M -35.36 -38.08 C -48.96 -29.92, -51.68 -5.44, -32.64 5.44" fill="none" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M 35.36 -38.08 C 48.96 -29.92, 51.68 -5.44, 32.64 5.44" fill="none" stroke="#5d1717" stroke-width="4.08"/>
+</g>
+  <g transform="translate(750 1198) rotate(180)">
+<g transform="translate(100 140) rotate(0)">
+  <path d="M -40.8 -65.28 C -40.8 -24.48, -24.48 5.44, 0 13.6 C 24.48 5.44, 40.8 -24.48, 40.8 -65.28 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M -24.48 -65.28 C -13.6 -89.76, 13.6 -89.76, 24.48 -65.28" fill="none" stroke="#a3352f" stroke-width="4.08"/>
+  <path d="M -8.16 13.6 L -16.32 51.68 L 16.32 51.68 L 8.16 13.6 Z" fill="#a3352f" stroke="#5d1717" stroke-width="4.08"/>
+  <rect x="-35.36" y="51.68" width="71" height="14" rx="4" fill="#a3352f" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M -35.36 -38.08 C -48.96 -29.92, -51.68 -5.44, -32.64 5.44" fill="none" stroke="#5d1717" stroke-width="4.08"/>
+  <path d="M 35.36 -38.08 C 48.96 -29.92, 51.68 -5.44, 32.64 5.44" fill="none" stroke="#5d1717" stroke-width="4.08"/>
+</g>
+  </g>
+  <text x="620" y="200" text-anchor="middle" font-size="212" font-family="Georgia, Times New Roman, serif" font-weight="700" fill="#5d1717">7</text>
+  <g transform="translate(130 1000) rotate(180)">
+    <text x="0" y="0" text-anchor="middle" font-size="212" font-family="Georgia, Times New Roman, serif" font-weight="700" fill="#5d1717">7</text>
+  </g>
+<g transform="translate(375 240) rotate(0)">
+  <path d="M -48 -76.8 C -48 -28.8, -28.8 6.4, 0 16 C 28.8 6.4, 48 -28.8, 48 -76.8 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -28.8 -76.8 C -16 -105.6, 16 -105.6, 28.8 -76.8" fill="none" stroke="#a3352f" stroke-width="4.8"/>
+  <path d="M -9.6 16 L -19.2 60.8 L 19.2 60.8 L 9.6 16 Z" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <rect x="-41.6" y="60.8" width="83" height="16" rx="5" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -41.6 -44.8 C -57.6 -35.2, -60.8 -6.4, -38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M 41.6 -44.8 C 57.6 -35.2, 60.8 -6.4, 38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+</g>
+<g transform="translate(260 380) rotate(0)">
+  <path d="M -48 -76.8 C -48 -28.8, -28.8 6.4, 0 16 C 28.8 6.4, 48 -28.8, 48 -76.8 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -28.8 -76.8 C -16 -105.6, 16 -105.6, 28.8 -76.8" fill="none" stroke="#a3352f" stroke-width="4.8"/>
+  <path d="M -9.6 16 L -19.2 60.8 L 19.2 60.8 L 9.6 16 Z" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <rect x="-41.6" y="60.8" width="83" height="16" rx="5" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -41.6 -44.8 C -57.6 -35.2, -60.8 -6.4, -38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M 41.6 -44.8 C 57.6 -35.2, 60.8 -6.4, 38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+</g>
+<g transform="translate(490 380) rotate(0)">
+  <path d="M -48 -76.8 C -48 -28.8, -28.8 6.4, 0 16 C 28.8 6.4, 48 -28.8, 48 -76.8 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -28.8 -76.8 C -16 -105.6, 16 -105.6, 28.8 -76.8" fill="none" stroke="#a3352f" stroke-width="4.8"/>
+  <path d="M -9.6 16 L -19.2 60.8 L 19.2 60.8 L 9.6 16 Z" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <rect x="-41.6" y="60.8" width="83" height="16" rx="5" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -41.6 -44.8 C -57.6 -35.2, -60.8 -6.4, -38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M 41.6 -44.8 C 57.6 -35.2, 60.8 -6.4, 38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+</g>
+<g transform="translate(260 600) rotate(0)">
+  <path d="M -48 -76.8 C -48 -28.8, -28.8 6.4, 0 16 C 28.8 6.4, 48 -28.8, 48 -76.8 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -28.8 -76.8 C -16 -105.6, 16 -105.6, 28.8 -76.8" fill="none" stroke="#a3352f" stroke-width="4.8"/>
+  <path d="M -9.6 16 L -19.2 60.8 L 19.2 60.8 L 9.6 16 Z" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <rect x="-41.6" y="60.8" width="83" height="16" rx="5" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -41.6 -44.8 C -57.6 -35.2, -60.8 -6.4, -38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M 41.6 -44.8 C 57.6 -35.2, 60.8 -6.4, 38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+</g>
+<g transform="translate(490 600) rotate(0)">
+  <path d="M -48 -76.8 C -48 -28.8, -28.8 6.4, 0 16 C 28.8 6.4, 48 -28.8, 48 -76.8 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -28.8 -76.8 C -16 -105.6, 16 -105.6, 28.8 -76.8" fill="none" stroke="#a3352f" stroke-width="4.8"/>
+  <path d="M -9.6 16 L -19.2 60.8 L 19.2 60.8 L 9.6 16 Z" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <rect x="-41.6" y="60.8" width="83" height="16" rx="5" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -41.6 -44.8 C -57.6 -35.2, -60.8 -6.4, -38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M 41.6 -44.8 C 57.6 -35.2, 60.8 -6.4, 38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+</g>
+<g transform="translate(260 820) rotate(180)">
+  <path d="M -48 -76.8 C -48 -28.8, -28.8 6.4, 0 16 C 28.8 6.4, 48 -28.8, 48 -76.8 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -28.8 -76.8 C -16 -105.6, 16 -105.6, 28.8 -76.8" fill="none" stroke="#a3352f" stroke-width="4.8"/>
+  <path d="M -9.6 16 L -19.2 60.8 L 19.2 60.8 L 9.6 16 Z" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <rect x="-41.6" y="60.8" width="83" height="16" rx="5" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -41.6 -44.8 C -57.6 -35.2, -60.8 -6.4, -38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M 41.6 -44.8 C 57.6 -35.2, 60.8 -6.4, 38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+</g>
+<g transform="translate(490 820) rotate(180)">
+  <path d="M -48 -76.8 C -48 -28.8, -28.8 6.4, 0 16 C 28.8 6.4, 48 -28.8, 48 -76.8 Z" fill="#e9b4a8" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -28.8 -76.8 C -16 -105.6, 16 -105.6, 28.8 -76.8" fill="none" stroke="#a3352f" stroke-width="4.8"/>
+  <path d="M -9.6 16 L -19.2 60.8 L 19.2 60.8 L 9.6 16 Z" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <rect x="-41.6" y="60.8" width="83" height="16" rx="5" fill="#a3352f" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M -41.6 -44.8 C -57.6 -35.2, -60.8 -6.4, -38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+  <path d="M 41.6 -44.8 C 57.6 -35.2, 60.8 -6.4, 38.4 6.4" fill="none" stroke="#5d1717" stroke-width="4.8"/>
+</g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="1200" viewBox="0 0 750 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Baraja Espanola Card Back</title>
+  <desc id="desc">Traditional-style Baraja Espanola playing card.</desc>
+  <defs>
+    <linearGradient id="paperGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffdf6"/>
+      <stop offset="100%" stop-color="#f5eddc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+    <rect x="18" y="18" width="714" height="1164" rx="34" fill="#efe4c8" stroke="#1f1b16" stroke-width="5" filter="url(#shadow)"/>
+  <rect x="42" y="42" width="666" height="1116" rx="28" fill="#6f1f23" stroke="#ecd5a4" stroke-width="4"/>
+  <rect x="68" y="68" width="614" height="1064" rx="22" fill="none" stroke="#f8eed6" stroke-width="2"/>
+  <text x="375" y="280" text-anchor="middle" font-size="104" font-family="Georgia, Times New Roman, serif" letter-spacing="8" fill="#f8eed6" font-weight="700">BARAJA</text>
+  <circle cx="375" cy="600" r="200" fill="none" stroke="#ecd5a4" stroke-width="6"/>
+  <circle cx="375" cy="600" r="160" fill="none" stroke="#f8eed6" stroke-width="3" stroke-dasharray="12 14"/>
+  <path d="M375 384 L425 524 L550 524 L450 594 L500 734 L375 664 L250 734 L300 594 L200 524 L325 524 Z" fill="#ecd5a4" stroke="#f8eed6" stroke-width="5"/>
+  <text x="375" y="950" text-anchor="middle" font-size="92" font-family="Georgia, Times New Roman, serif" letter-spacing="6" fill="#f8eed6">ESPAÑOLA</text>
+</svg>
