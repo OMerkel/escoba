@@ -2,6 +2,10 @@
 
 Classic Spanish card game Escoba de Quince with human and AI play modes.
 
+## Play Online
+
+- [Start game now...](https://omerkel.github.io/escoba/javascript/html5/src/)
+
 ## Repository Layout
 
 - `javascript/html5/` - browser implementation (Vite + Vitest)
