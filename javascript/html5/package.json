@@ -1,0 +1,36 @@
+{
+  "name": "escoba-de-quince",
+  "version": "1.0.0",
+  "description": "Escoba de Quince card game implementation in HTML5/JavaScript",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage --run",
+    "lint": "biome lint src/",
+    "lint:fix": "biome lint src/ --write",
+    "format": "biome format src/ --write",
+    "ci": "biome ci src/ && vitest --run"
+  },
+  "keywords": [
+    "card-game",
+    "escoba",
+    "spanish-cards",
+    "ai",
+    "game-ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.15",
+    "@vitest/coverage-v8": "^1.0.0",
+    "@vitest/ui": "^1.0.0",
+    "jsdom": "^29.1.1",
+    "vite": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}
