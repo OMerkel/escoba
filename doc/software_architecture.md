@@ -30,6 +30,8 @@ escoba/
 |       |-- src/
 |       |   |-- index.html                 # Entry point; UI shell
 |       |   |-- index.js                   # App bootstrapper
+|       |   |-- manifest.json              # PWA install metadata
+|       |   `-- sw.js                      # Service worker for offline caching
 |       |   |-- css/                       # Stylesheets
 |       |   |-- core/                      # Game logic
 |       |   |-- ai/                        # AI engines and strategies
@@ -105,6 +107,8 @@ The browser application is responsible for:
   development serving and static `dist` serving behave consistently.
 - **Post-Build Asset Copy**: Vite builds application assets while the image tree
   is copied from `src/img` into `dist/img` to preserve one source of truth.
+- **PWA App Shell**: install metadata (`manifest.json`) and service worker
+  (`sw.js`) provide install support and offline-capable asset caching.
 - **Session-Scoped Statistics**: simplifies implementation while keeping richer
   persistent statistics as a future enhancement.
 - **SGF Support via Persistence Module**: SGF parse/export capabilities are

@@ -15,9 +15,19 @@ export default defineConfig({
       closeBundle() {
         const sourceDir = resolve(__dirname, "src/img");
         const targetDir = resolve(__dirname, "dist/img");
+        const sourceSw = resolve(__dirname, "src/sw.js");
+        const targetSw = resolve(__dirname, "dist/sw.js");
+        const sourceManifest = resolve(__dirname, "src/manifest.json");
+        const targetManifest = resolve(__dirname, "dist/manifest.json");
 
         if (existsSync(sourceDir)) {
           cpSync(sourceDir, targetDir, { recursive: true, force: true });
+        }
+        if (existsSync(sourceSw)) {
+          cpSync(sourceSw, targetSw, { force: true });
+        }
+        if (existsSync(sourceManifest)) {
+          cpSync(sourceManifest, targetManifest, { force: true });
         }
       },
     },

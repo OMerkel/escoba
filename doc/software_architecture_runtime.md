@@ -219,6 +219,28 @@ localStorage key escoba_stats updated
 This flow is currently browser-local persistence at UI level rather than a
 backend or shared profile store.
 
+### PWA Install and Offline Runtime Flow
+
+```text
+index.js bootstraps app shell
+    ↓
+registerServiceWorker() registers ./sw.js on window load
+    ↓
+Service worker install event caches shell assets
+    ↓
+Browser evaluates manifest + service worker installability criteria
+    ↓
+User triggers install via browser UI (menu/install icon/Add to Home Screen)
+```
+
+Offline behavior at runtime:
+
+- **Navigation requests**: network-first with fallback to cached `index.html`.
+- **Static assets** (`script`, `style`, `image`, `worker`, `font`):
+  stale-while-revalidate in runtime cache.
+- **Cache versioning**: old cache buckets are removed during service worker
+  activation.
+
 ---
 
 ## AI Strategy Integration

@@ -102,6 +102,39 @@ Starts local dev server at `http://localhost:3000` with hot module reloading.
 - Static assets are kept under `src/img/` and copied to `dist/img/` at build
   time.
 
+### Progressive Web App (PWA)
+
+This app supports installation and offline play-oriented caching.
+
+- **Manifest**: `src/manifest.json`
+- **Service worker**: `src/sw.js`
+- **Install UX**: browser-managed install flow (for example, Add to Home Screen
+  on mobile or Install App from browser chrome on desktop)
+- **Policy**: intentionally no in-app install button, hint, or custom install
+  prompt handling
+
+#### What Is Cached
+
+- App shell assets (entry page, manifest, and key icons)
+- Runtime same-origin assets (scripts, styles, images, workers, fonts) via
+  stale-while-revalidate
+- Navigation requests use network-first with offline fallback to cached
+  `index.html`
+
+#### How To Test Installation
+
+1. Run `npm run build`.
+2. Serve `dist/` with HTTPS or `localhost` semantics.
+3. Open the app in a supported browser.
+4. Install it using the browser's built-in install or Add to Home Screen UI.
+
+#### How To Test Offline Behavior
+
+1. Open the app once while online.
+2. In browser devtools, switch to Offline network mode.
+3. Reload the page; previously fetched app assets should continue to load from
+   cache.
+
 ### Testing
 
 ```bash

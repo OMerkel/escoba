@@ -818,6 +818,48 @@ switch turns and verify swap.
 
 ---
 
+### FR-18: Progressive Web App (PWA)
+
+#### FR-18.1 Installable Application
+
+- **Requirement:** The browser application must expose install metadata through
+  a valid web app manifest so installation can be offered by the user agent.
+- **Details:**
+  - Manifest includes app name, start URL, scope, display mode, and icons.
+  - No in-app install control is required; installation is browser-native
+    (e.g., Add to Home Screen or browser install menu).
+  - This is an intentional product policy to keep installation UX owned by the
+    browser environment.
+- **Testable:** Integration test checks manifest availability and installability
+  criteria in browser developer tools.
+
+#### FR-18.2 Offline App-Shell Availability
+
+- **Requirement:** A service worker must cache app-shell resources so that the
+  app can start while offline after at least one successful online load.
+- **Details:** Cached shell includes entry document and install metadata assets.
+- **Testable:** Integration test loads app online once, switches to offline,
+  reloads, and verifies shell still renders.
+
+#### FR-18.3 Runtime Asset Caching
+
+- **Requirement:** Static same-origin assets (scripts, styles, images, workers,
+  fonts) must be cached at runtime to improve resilience under intermittent
+  network conditions.
+- **Details:** Runtime cache strategy may be stale-while-revalidate or an
+  equivalent non-blocking approach.
+- **Testable:** Integration test verifies assets requested online are served
+  from cache while offline.
+
+#### FR-18.4 Build Output Compatibility
+
+- **Requirement:** Production build output must include all required PWA files
+  (manifest and service worker) in deployable locations.
+- **Testable:** Build verification confirms generated `dist/` contains manifest
+  and service worker files at root.
+
+---
+
 ## NON-FUNCTIONAL REQUIREMENTS
 
 ### NFR-1: Performance

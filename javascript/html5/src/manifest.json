@@ -1,0 +1,71 @@
+{
+	"name": "Escoba de Quince",
+	"short_name": "Escoba",
+	"description": "Escoba de Quince - Spanish card game with AI opponents",
+	"start_url": "./index.html",
+	"display": "standalone",
+	"background_color": "#1a3a2a",
+	"theme_color": "#1a3a2a",
+	"scope": "./",
+	"orientation": "any",
+	"lang": "en",
+	"icons": [
+		{
+			"src": "img/icons/escoba32.png",
+			"sizes": "32x32",
+			"type": "image/png"
+		},
+		{
+			"src": "img/icons/escoba48.png",
+			"sizes": "48x48",
+			"type": "image/png"
+		},
+		{
+			"src": "img/icons/escoba60.png",
+			"sizes": "60x60",
+			"type": "image/png"
+		},
+		{
+			"src": "img/icons/escoba64.png",
+			"sizes": "64x64",
+			"type": "image/png"
+		},
+		{
+			"src": "img/icons/escoba90.png",
+			"sizes": "90x90",
+			"type": "image/png"
+		},
+		{
+			"src": "img/icons/escoba120.png",
+			"sizes": "120x120",
+			"type": "image/png"
+		},
+		{
+			"src": "img/icons/escoba128.png",
+			"sizes": "128x128",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "img/icons/escoba256.png",
+			"sizes": "256x256",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	],
+	"categories": ["games"],
+	"screenshots": [
+		{
+			"src": "img/icons/escoba256.png",
+			"sizes": "256x256",
+			"type": "image/png",
+			"form_factor": "narrow"
+		},
+		{
+			"src": "img/icons/escoba256.png",
+			"sizes": "256x256",
+			"type": "image/png",
+			"form_factor": "wide"
+		}
+	]
+}
