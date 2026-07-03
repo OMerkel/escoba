@@ -88,6 +88,7 @@ export class GameController {
     logger.info("Game started", this.gameState);
 
     this.gameView.currentView = "game";
+    this.gameView.selectedDifficulty = this.selectedDifficulty;
     this.gameView.playerTypes = this.playerTypes;
     this.gameView.clearBoardStatus(false);
     this.gameView.render(this.gameState);
@@ -479,17 +480,29 @@ export class GameController {
     logger.info("Game ended");
     this.gameActive = false;
 
-    const p1Score = this.gameState.players[0].score;
-    const p2Score = this.gameState.players[1].score;
+    const humanIndices = this.playerTypes
+      .map((type, idx) => (type === "human" ? idx : -1))
+      .filter((idx) => idx >= 0);
+
+    // In normal human-vs-AI play, attribute "Your" score to the human seat.
+    const hasSingleHuman = humanIndices.length === 1;
+    const humanIdx = hasSingleHuman ? humanIndices[0] : 0;
+    const opponentIdx = hasSingleHuman ? 1 - humanIdx : 1;
+
+    const playerScore = this.gameState.players[humanIdx].score;
+    const aiScore = this.gameState.players[opponentIdx].score;
+
     let winner = "ai";
     if (winnerIndex === null) {
-      winner = p1Score > p2Score ? "player" : "ai";
+      winner = playerScore > aiScore ? "player" : "ai";
+    } else if (hasSingleHuman) {
+      winner = winnerIndex === humanIdx ? "player" : "ai";
     } else {
       winner = this.playerTypes[winnerIndex] === "human" ? "player" : "ai";
     }
 
     this.gameView.currentView = "results";
-    this.gameView.renderResults(winner, p1Score, p2Score);
+    this.gameView.renderResults(winner, playerScore, aiScore);
   }
 
   /**

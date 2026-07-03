@@ -179,22 +179,20 @@ export class GameView {
     `;
     resultsContainer.appendChild(scoreSummary);
 
+    const effectiveDifficulty = this.selectedDifficulty || "medium";
+
     // Statistics update
     const wasWin = winner === "player";
-    this.statisticsPanel.recordGame(
-      this.selectedDifficulty,
-      wasWin,
-      playerScore,
-    );
+    this.statisticsPanel.recordGame(effectiveDifficulty, wasWin, playerScore);
 
     // Stats display
     const statsDisplay = document.createElement("div");
     statsDisplay.className = "results-stats";
-    const stat = this.statisticsPanel.stats[this.selectedDifficulty];
+    const stat = this.statisticsPanel.stats[effectiveDifficulty];
     statsDisplay.innerHTML = `
-      <p><strong>Difficulty:</strong> ${this.selectedDifficulty.charAt(0).toUpperCase() + this.selectedDifficulty.slice(1)}</p>
-      <p><strong>Record vs ${this.selectedDifficulty}:</strong> ${stat.wins}W - ${stat.losses}L</p>
-      <p><strong>Win Rate:</strong> ${this.statisticsPanel.getWinRate(this.selectedDifficulty)}</p>
+      <p><strong>Difficulty:</strong> ${effectiveDifficulty.charAt(0).toUpperCase() + effectiveDifficulty.slice(1)}</p>
+      <p><strong>Record vs ${effectiveDifficulty}:</strong> ${stat.wins}W - ${stat.losses}L</p>
+      <p><strong>Win Rate:</strong> ${this.statisticsPanel.getWinRate(effectiveDifficulty)}</p>
     `;
     resultsContainer.appendChild(statsDisplay);
 

@@ -51,8 +51,11 @@ function cacheRuntimeResponse(request, response) {
     return;
   }
 
+  // Clone immediately before the response body can be consumed by the browser.
+  const responseForCache = response.clone();
+
   caches.open(RUNTIME_CACHE).then((cache) => {
-    cache.put(request, response.clone());
+    cache.put(request, responseForCache);
   });
 }
 

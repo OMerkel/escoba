@@ -76,4 +76,14 @@ describe("GameController opening mandatory capture display", () => {
       false,
     );
   });
+
+  it("syncs selected difficulty to game view for result statistics", async () => {
+    const gameView = createGameViewStub();
+    const controller = new GameController(gameView, new EventBus());
+
+    await controller.startNewGame("hard");
+
+    expect(controller.selectedDifficulty).toBe("hard");
+    expect(gameView.selectedDifficulty).toBe("hard");
+  });
 });
