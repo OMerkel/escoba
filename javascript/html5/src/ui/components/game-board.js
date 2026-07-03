@@ -344,14 +344,6 @@ export class GameBoard {
 
     const previewLocked = this.isPreviewPhase();
 
-    const selectedInfo = document.createElement("div");
-    selectedInfo.className = "selected-info";
-    selectedInfo.innerHTML = `<p>${previewLocked ? "Preview:" : "Selected:"} <span id="selected-count">${previewLocked ? "locked" : "0 cards"}</span></p>`;
-    controls.appendChild(selectedInfo);
-
-    const buttonsContainer = document.createElement("div");
-    buttonsContainer.className = "control-buttons";
-
     // Play Card button (handles both capture and discard)
     const playBtn = document.createElement("button");
     playBtn.textContent = "Play Card";
@@ -363,17 +355,7 @@ export class GameBoard {
         this.onMoveSelected(this.selectedCards);
       }
     });
-    buttonsContainer.appendChild(playBtn);
-
-    // Clear selection button
-    const clearBtn = document.createElement("button");
-    clearBtn.textContent = "Clear";
-    clearBtn.className = "btn btn-secondary";
-    clearBtn.disabled = previewLocked;
-    clearBtn.addEventListener("click", () => this.clearSelection());
-    buttonsContainer.appendChild(clearBtn);
-
-    controls.appendChild(buttonsContainer);
+    controls.appendChild(playBtn);
     return controls;
   }
 

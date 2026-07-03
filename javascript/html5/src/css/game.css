@@ -51,8 +51,8 @@
   --transition-slow: 500ms ease-out;
 
   /* Card sizes */
-  --card-width: 90px;
-  --card-height: 140px;
+  --card-width: 84px;
+  --card-height: 130px;
   --card-width-lg: 120px;
   --card-height-lg: 180px;
 }
@@ -1026,8 +1026,8 @@ body {
 
 @media (max-width: 1200px) {
   :root {
-    --card-width: 80px;
-    --card-height: 120px;
+    --card-width: 74px;
+    --card-height: 112px;
   }
 
   .game-header {
@@ -1049,8 +1049,8 @@ body {
 
 @media (max-width: 768px) {
   :root {
-    --card-width: 70px;
-    --card-height: 105px;
+    --card-width: 66px;
+    --card-height: 99px;
     --spacing-lg: 16px;
   }
 
@@ -1117,8 +1117,8 @@ body {
 
 @media (max-width: 480px) {
   :root {
-    --card-width: 60px;
-    --card-height: 90px;
+    --card-width: 56px;
+    --card-height: 84px;
     --font-size-3xl: 24px;
     --font-size-2xl: 18px;
   }

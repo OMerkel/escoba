@@ -566,8 +566,9 @@ const menuStyles = `
   transform: translateX(-50%);
   background: var(--color-accent);
   color: var(--color-text-dark);
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: 10px 18px;
   border-radius: 8px;
+  font-size: calc(1em - 2px);
   font-weight: 600;
   z-index: 1000;
   animation: slideDown 0.3s ease-out;
