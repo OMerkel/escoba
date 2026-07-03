@@ -59,6 +59,26 @@ Updated GameState propagated to view
 GameView.render(newState)
 ```
 
+### Opening Table Special-Capture Flow (FR-10 + FR-UI-1.1)
+
+```text
+GameController.startNewGame()
+    ↓
+GameEngine.startGame() detects opening table sum 15 or 30
+    ↓
+Dealer receives opening table cards and escoba award in state
+    ↓
+Controller builds preview state (phase=captureDisplay)
+    ↓
+Opening capture set shown on table with dealer attribution
+    ↓
+Wait mandatoryCaptureDisplayDurationMs (config, default 6000ms)
+    ↓
+Controller restores final opening state (table empty, cards in dealer pile)
+    ↓
+Normal turn progression begins
+```
+
 ### Turn Execution (AI Player)
 
 ```text

@@ -7,6 +7,7 @@
 import { describe, expect, it } from "vitest";
 import {
   createConfiguration,
+  DEFAULT_MANDATORY_CAPTURE_DISPLAY_DURATION_MS,
   getConfigurationPreset,
   loadConfiguration,
   validateConfiguration,
@@ -22,6 +23,9 @@ describe("Configuration", () => {
     expect(config.targetScore).toBe(21);
     expect(config.setentaMethod).toBe("numerical");
     expect(config.aiStrategy).toBe("greedy");
+    expect(config.mandatoryCaptureDisplayDurationMs).toBe(
+      DEFAULT_MANDATORY_CAPTURE_DISPLAY_DURATION_MS,
+    );
   });
 
   it("should merge custom values with defaults", () => {
@@ -164,5 +168,24 @@ describe("Configuration", () => {
     // When: creating config
     // Then: should throw
     expect(() => createConfiguration(invalid)).toThrow();
+  });
+
+  it("should support configurable mandatory capture display duration", () => {
+    const config = createConfiguration({
+      mandatoryCaptureDisplayDurationMs: 6000,
+    });
+    expect(config.mandatoryCaptureDisplayDurationMs).toBe(6000);
+  });
+
+  it("should reject too-small mandatory capture display duration", () => {
+    const result = validateConfiguration({
+      mandatoryCaptureDisplayDurationMs: 500,
+    });
+    expect(result.valid).toBe(false);
+    expect(
+      result.errors.some((e) =>
+        e.includes("mandatoryCaptureDisplayDurationMs"),
+      ),
+    ).toBe(true);
   });
 });

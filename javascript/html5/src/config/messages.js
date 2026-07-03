@@ -18,6 +18,9 @@ export const GAME_MESSAGES = {
   INITIAL_TABLE_SPECIAL_STATUS: (sum, dealerLabel, escobas) =>
     `Initial table totaled ${sum}. ${dealerLabel} captures the opening table and scores ${escobas} escoba${escobas === 1 ? "" : "s"}.`,
 
+  INITIAL_TABLE_SPECIAL_PREVIEW: (sum, dealerLabel, escobas) =>
+    `Opening mandatory capture: table totaled ${sum}. ${dealerLabel} captures all opening cards (+${escobas} escoba${escobas === 1 ? "" : "s"}).`,
+
   INVALID_CAPTURE_SUM: (handValue, tableSum, total) =>
     `Invalid capture! ${handValue} + ${tableSum} = ${total}, must equal 15.`,
 

@@ -8,6 +8,8 @@
  * Default game configuration
  * FR-11: Configurable game parameters
  */
+export const DEFAULT_MANDATORY_CAPTURE_DISPLAY_DURATION_MS = 6000;
+
 export const DEFAULT_CONFIG = {
   // Game play settings
   targetScore: 21, // FR-11.1: Game ends at 21 points (or configured value)
@@ -24,6 +26,8 @@ export const DEFAULT_CONFIG = {
   mctsRolloutsPerDecision: 1000, // FR-17.1
 
   // Display/UI settings
+  mandatoryCaptureDisplayDurationMs:
+    DEFAULT_MANDATORY_CAPTURE_DISPLAY_DURATION_MS, // FR-UI-1.1/1.3
   animationEnabled: true,
   soundEnabled: false,
 };
@@ -60,6 +64,12 @@ const VALIDATION_SCHEMA = {
     min: 100,
     max: 10000,
     description: "MCTS rollout count per decision",
+  },
+  mandatoryCaptureDisplayDurationMs: {
+    type: "number",
+    min: 1000,
+    max: 10000,
+    description: "Mandatory capture display duration in ms",
   },
 };
 

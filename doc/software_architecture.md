@@ -103,12 +103,18 @@ The browser application is responsible for:
 - **Module-Based Config**: configuration lives in `src/config/configuration.js`,
   `src/config/constants.js`, and `src/config/messages.js` instead of the old
   JSON-only architecture draft.
+- **Configurable Mandatory Capture Timing**: FR-UI-1 capture-display duration is
+  driven by `mandatoryCaptureDisplayDurationMs` in
+  `src/config/configuration.js` (default 6000ms), avoiding hardcoded UI timing.
 - **Relative Image Paths**: runtime asset references use `img/deck/...` so both
   development serving and static `dist` serving behave consistently.
 - **Post-Build Asset Copy**: Vite builds application assets while the image tree
   is copied from `src/img` into `dist/img` to preserve one source of truth.
 - **PWA App Shell**: install metadata (`manifest.json`) and service worker
   (`sw.js`) provide install support and offline-capable asset caching.
+- **Opening Capture Visualization Coupling**: FR-10 opening-table 15/30
+  auto-captures are rendered through the same FR-UI-1 mandatory capture-display
+  flow as normal moves before gameplay continues.
 - **Session-Scoped Statistics**: simplifies implementation while keeping richer
   persistent statistics as a future enhancement.
 - **SGF Support via Persistence Module**: SGF parse/export capabilities are

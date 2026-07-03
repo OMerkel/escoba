@@ -208,7 +208,10 @@ export class GameBoard {
         });
 
         if (this.isPreviewPlayedCard(playerIdx, card)) {
-          cardElement.classList.add("card-selected", "capture-preview-highlight");
+          cardElement.classList.add(
+            "card-selected",
+            "capture-preview-highlight",
+          );
         }
 
         cardsContainer.appendChild(cardElement);
@@ -218,7 +221,9 @@ export class GameBoard {
       for (const card of hand) {
         if (this.isPreviewPlayedCard(playerIdx, card)) {
           const playedCard = new CardComponent(card, this.deckName);
-          const playedCardElement = playedCard.createElement({ clickable: false });
+          const playedCardElement = playedCard.createElement({
+            clickable: false,
+          });
           playedCardElement.classList.add(
             "card-selected",
             "capture-preview-highlight",

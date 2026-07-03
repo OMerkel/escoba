@@ -230,10 +230,14 @@ export class GameView {
       overlay.setAttribute("aria-modal", "true");
       overlay.setAttribute("aria-label", "Round summary");
 
-      const [p1Label, p2Label] = summary.playerLabels || ["Player 1", "Player 2"];
+      const [p1Label, p2Label] = summary.playerLabels || [
+        "Player 1",
+        "Player 2",
+      ];
       const winnerLabel =
         summary.isGameOver && typeof summary.winnerIndex === "number"
-          ? summary.playerLabels?.[summary.winnerIndex] || `Player ${summary.winnerIndex + 1}`
+          ? summary.playerLabels?.[summary.winnerIndex] ||
+            `Player ${summary.winnerIndex + 1}`
           : null;
 
       const rowsHtml = summary.categories
@@ -313,7 +317,9 @@ export class GameView {
         resolve();
       };
 
-      overlay.querySelector("#round-summary-ok")?.addEventListener("click", onOk);
+      overlay
+        .querySelector("#round-summary-ok")
+        ?.addEventListener("click", onOk);
       document.body.appendChild(overlay);
       overlay.querySelector("#round-summary-ok")?.focus();
     });

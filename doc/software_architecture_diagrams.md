@@ -123,7 +123,7 @@ stateDiagram-v2
     Dealing --> Playing: Both players have 3 cards
 
     Playing --> CaptureDisplay: Player plays card
-    CaptureDisplay --> Playing: Display 4 seconds then execute move
+    CaptureDisplay --> Playing: Display for configured duration then execute move
 
     Playing --> Redeal: Both players out of cards
     Redeal --> Playing: New 3 cards dealt

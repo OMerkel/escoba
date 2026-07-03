@@ -61,13 +61,13 @@ export const ScoringEngine = {
 
     if (method === "numerical") {
       const numericalWeight = {
-        "7": 21,
-        "6": 18,
+        7: 21,
+        6: 18,
         as: 16,
-        "5": 15,
-        "4": 14,
-        "3": 13,
-        "2": 12,
+        5: 15,
+        4: 14,
+        3: 13,
+        2: 12,
         sota: 10,
         caballo: 10,
         rey: 10,
@@ -83,13 +83,13 @@ export const ScoringEngine = {
 
     // Default and recommended rules.md path: prime-style lexicographic comparison
     const primeRank = {
-      "7": 8,
-      "6": 7,
+      7: 8,
+      6: 7,
       as: 6,
-      "5": 5,
-      "4": 4,
-      "3": 3,
-      "2": 2,
+      5: 5,
+      4: 4,
+      3: 3,
+      2: 2,
       sota: 1,
       caballo: 1,
       rey: 1,

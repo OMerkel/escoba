@@ -89,7 +89,8 @@ export class GameEngine {
       (acc, card) => acc + card.value,
       0,
     );
-    const specialInitialEscobas = initialTableSum === 30 ? 2 : initialTableSum === 15 ? 1 : 0;
+    const specialInitialEscobas =
+      initialTableSum === 30 ? 2 : initialTableSum === 15 ? 1 : 0;
     const openingTableCards = [...dealResult.tableCards];
 
     this.lastInitialSpecialEvent = null;
@@ -101,6 +102,7 @@ export class GameEngine {
         escobas: specialInitialEscobas,
         dealerIndex: clampedDealerIndex,
         cardsAwarded: openingTableCards.length,
+        tableCards: [...openingTableCards],
       };
     }
 
@@ -319,7 +321,9 @@ export class GameEngine {
       .reverse()
       .find((m) => m?.move?.isCapture);
     const lastCapturerIndex =
-      typeof lastCaptureMove?.player === "number" ? lastCaptureMove.player : null;
+      typeof lastCaptureMove?.player === "number"
+        ? lastCaptureMove.player
+        : null;
 
     const playersForScoring = this.gameState.players.map((player) => ({
       ...player,
@@ -648,13 +652,13 @@ export class GameEngine {
 }
 
 const PRIME_VALUE_BY_RANK = {
-  "7": 8,
-  "6": 7,
+  7: 8,
+  6: 7,
   as: 6,
-  "5": 5,
-  "4": 4,
-  "3": 3,
-  "2": 2,
+  5: 5,
+  4: 4,
+  3: 3,
+  2: 2,
   sota: 1,
   caballo: 1,
   rey: 1,

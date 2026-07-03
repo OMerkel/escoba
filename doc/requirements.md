@@ -368,19 +368,25 @@ correctly.
 #### FR-10.1 Initial Table Totals 15
 
 - **Requirement:** If the 4 initial face-up table cards total exactly 15, dealer
-  immediately captures them; counts as 1
+  immediately captures them; counts as 1 escoba.
 
-escoba.
+- **UI Coupling:** This opening mandatory capture must be rendered through the
+  same mandatory capture-display flow defined in FR-UI-1.1 before normal turn
+  execution continues.
 
 - **Testable:** Unit test with initial table [7, 6, As, As]; verify dealer gets
-  cards and 1 escoba point.
+  cards and 1 escoba point; integration test verifies temporary
+  `captureDisplay` visualization and delayed transition back to `playing`.
 
 #### FR-10.2 Initial Table Totals 30
 
 - **Requirement:** If the 4 initial table cards total exactly 30, dealer
   captures them; counts as 2 escobas.
+- **UI Coupling:** This opening mandatory capture must also follow FR-UI-1.1
+  capture-display visualization and timing rules.
 - **Testable:** Unit test with initial table [10, 10, 10, 0] or equivalent;
-  verify 2 escoba points.
+  verify 2 escoba points; integration test verifies the opening capture is
+  shown before gameplay proceeds.
 
 #### FR-10.3 No Captures Made (Edge Case)
 
@@ -708,10 +714,12 @@ configs rejected with clear error message.
 - **Requirement:** After a player selects a capture set (or makes a discard),
   the capture set must be displayed visually
 
-for exactly 4 seconds before the move is executed.
+for a configurable duration before the move is executed.
 
 - **Details:**
   - Applies to both human and AI players without distinction.
+  - Also applies to FR-10 opening mandatory captures when initial table total is
+    15 or 30.
   - Display shows: played card + captured table cards (if any), with their
     values and sum.
   - If no capture (discard), display shows the played card and "no capture
@@ -720,7 +728,7 @@ for exactly 4 seconds before the move is executed.
 - **Testable:** Unit test triggers capture/discard, verifies game state
   transitions to `captureDisplay` phase, displays
 
-for 4 seconds, then transitions back to `playing` and executes move; test
+for configured duration, then transitions back to `playing` and executes move; test
 verifies move does not execute until display timeout.
 
 #### FR-UI-1.2 Highlight and Emphasis
@@ -741,8 +749,10 @@ values.
 - **Requirement:** Capture display duration must be configurable via
   source configuration.
 - **Details:**
-  - Configuration parameter: `captureDisplayDuration` (milliseconds).
-  - Default: 4000ms.
+  - Configuration parameter:
+    `mandatoryCaptureDisplayDurationMs` (milliseconds).
+  - Source: `javascript/html5/src/config/configuration.js`.
+  - Default: 6000ms.
   - Range: 1000–10000ms (recommended 2000–6000ms for playability).
 - **Testable:** Unit test reads configuration values, verifies duration applied;
   test with
@@ -987,9 +997,11 @@ Key traceability checkpoints:
 8. **test-game-state.test.js** → FR-9.1, FR-9.2, FR-11.1
 9. **test-ai-manager.test.js** → FR-12.1, FR-12.2, FR-12.4
 10. **test-ui-integration.test.js** → FR-12.3, FR-13.1, FR-13.2, FR-13.3
-11. **test-persistence.test.js** → FR-14.1–FR-14.6
-12. **test-ai-strategy.test.js** → FR-15.1, FR-15.2, FR-15.3
-13. **test-configuration.test.js** → FR-17.1, FR-17.2, FR-17.3
+11. **test-game-controller-initial-special-display.test.js** → FR-10.1,
+    FR-10.2, FR-UI-1.1
+12. **test-persistence.test.js** → FR-14.1–FR-14.6
+13. **test-ai-strategy.test.js** → FR-15.1, FR-15.2, FR-15.3
+14. **test-configuration.test.js** → FR-17.1, FR-17.2, FR-17.3, FR-UI-1.3
 
 ### Coverage Goals
 

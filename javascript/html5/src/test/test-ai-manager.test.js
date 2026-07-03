@@ -45,8 +45,8 @@ describe("AI Manager", () => {
       const strategy = (hand, table) => {
         void table;
         return {
-        card: hand[0],
-        isCapture: false,
+          card: hand[0],
+          isCapture: false,
         };
       };
       const hand = [new Card("oros", "5", 5)];

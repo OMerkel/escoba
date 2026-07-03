@@ -9,6 +9,10 @@ import {
   selectMomentumMove,
   selectRiskAverseMove,
 } from "../ai/greedy-variants.js";
+import {
+  createConfiguration,
+  DEFAULT_MANDATORY_CAPTURE_DISPLAY_DURATION_MS,
+} from "../config/configuration.js";
 import { GAME_MESSAGES } from "../config/messages.js";
 import { GameEngine } from "../core/game-engine.js";
 import { Logger } from "../utils/logger.js";
@@ -53,7 +57,10 @@ export class GameController {
    * Get capture display duration from config
    */
   getCaptureDisplayDuration() {
-    return this.gameState?.captureDisplayDuration || 4000; // milliseconds
+    return (
+      this.gameState?.captureDisplayDurationMs ||
+      DEFAULT_MANDATORY_CAPTURE_DISPLAY_DURATION_MS
+    );
   }
 
   /**
@@ -66,12 +73,13 @@ export class GameController {
   /**
    * Start a new game
    */
-  startNewGame(difficulty) {
+  async startNewGame(difficulty) {
     logger.info(`Starting new game with difficulty: ${difficulty}`);
 
     this.selectedDifficulty = difficulty;
     this.aiStrategy = this.getAIStrategy(difficulty);
-    this.gameEngine = new GameEngine();
+    const gameConfig = createConfiguration();
+    this.gameEngine = new GameEngine(gameConfig);
     this.gameEngine.startGame();
     this.gameState = this.gameEngine.gameState;
     this.gameActive = true;
@@ -100,6 +108,26 @@ export class GameController {
             ? "AI South"
             : "AI North";
 
+      await this.displayInitialMandatoryCapture(initialSpecial, dealerLabel);
+    }
+
+    await this._advanceTurn();
+  }
+
+  /**
+   * Mandatory FR-UI-1.1 preview for FR-10 opening-table 15/30 capture events.
+   */
+  async displayInitialMandatoryCapture(initialSpecial, dealerLabel) {
+    const finalState = this.gameState;
+    const previewCards =
+      Array.isArray(initialSpecial.tableCards) &&
+      initialSpecial.tableCards.length > 0
+        ? [...initialSpecial.tableCards]
+        : [
+            ...(finalState.players[initialSpecial.dealerIndex]?.pile || []),
+          ].slice(-initialSpecial.cardsAwarded);
+
+    if (previewCards.length === 0) {
       this.gameView.setBoardStatus(
         GAME_MESSAGES.INITIAL_TABLE_SPECIAL_STATUS(
           initialSpecial.sum,
@@ -108,9 +136,55 @@ export class GameController {
         ),
         "info",
       );
+      return;
     }
 
-    this._advanceTurn();
+    const previewPlayers = finalState.players.map((player, index) => {
+      if (index !== initialSpecial.dealerIndex) return player;
+      const keepCount = Math.max(0, player.pile.length - previewCards.length);
+      return {
+        ...player,
+        pile: player.pile.slice(0, keepCount),
+      };
+    });
+
+    const previewStatus = GAME_MESSAGES.INITIAL_TABLE_SPECIAL_PREVIEW(
+      initialSpecial.sum,
+      dealerLabel,
+      initialSpecial.escobas,
+    );
+
+    this.gameState = finalState.transition("captureDisplay", {
+      players: previewPlayers,
+      tableCards: previewCards,
+      captureDisplay: {
+        playedCard: null,
+        tableCards: previewCards,
+        playerId: initialSpecial.dealerIndex,
+        statusText: previewStatus,
+        statusType: "success",
+      },
+    });
+
+    this.gameView.setBoardStatus(previewStatus, "success", false);
+    this.gameView.updateGameBoard(this.gameState);
+
+    await new Promise((resolve) => {
+      setTimeout(resolve, this.getCaptureDisplayDuration());
+    });
+
+    this.gameState = finalState.transition("playing", {
+      captureDisplay: null,
+    });
+    this.gameView.setBoardStatus(
+      GAME_MESSAGES.INITIAL_TABLE_SPECIAL_STATUS(
+        initialSpecial.sum,
+        dealerLabel,
+        initialSpecial.escobas,
+      ),
+      "info",
+    );
+    this.gameView.updateGameBoard(this.gameState);
   }
 
   /**
@@ -201,10 +275,7 @@ export class GameController {
             );
           } else {
             logger.error(`Card not found: ${selected.suit} ${selected.rank}.`);
-            this.gameView.setBoardStatus(
-              GAME_MESSAGES.CARD_NOT_FOUND,
-              "error",
-            );
+            this.gameView.setBoardStatus(GAME_MESSAGES.CARD_NOT_FOUND, "error");
             this.gameView.updateGameBoard(this.gameState);
             return;
           }
@@ -212,10 +283,7 @@ export class GameController {
       }
 
       if (!handCard) {
-        this.gameView.setBoardStatus(
-          GAME_MESSAGES.SELECT_HAND_CARD,
-          "error",
-        );
+        this.gameView.setBoardStatus(GAME_MESSAGES.SELECT_HAND_CARD, "error");
         return;
       }
 
@@ -312,7 +380,10 @@ export class GameController {
       }
 
       const captureCardsAI = moveCards.capture || [];
-      const previewStatus = this.buildPreviewStatus(moveCards.card, captureCardsAI);
+      const previewStatus = this.buildPreviewStatus(
+        moveCards.card,
+        captureCardsAI,
+      );
       await this.displayCaptureSet(
         playerIdx,
         moveCards.card,
@@ -333,7 +404,11 @@ export class GameController {
 
       this.gameState = this.gameEngine.gameState;
       this.gameView.setBoardStatus(
-        this.buildResolutionStatus(moveCards.card, captureCardsAI, moveResult.escoba),
+        this.buildResolutionStatus(
+          moveCards.card,
+          captureCardsAI,
+          moveResult.escoba,
+        ),
         moveResult.moveType === "capture" ? "success" : "info",
       );
 
@@ -461,7 +536,9 @@ export class GameController {
 
     const capturedSum = captureCards.reduce((sum, c) => sum + c.value, 0);
     const total = handCard.value + capturedSum;
-    const terms = [handCard.value, ...captureCards.map((c) => c.value)].join(" + ");
+    const terms = [handCard.value, ...captureCards.map((c) => c.value)].join(
+      " + ",
+    );
     const isEscoba = captureCards.length === this.gameState.tableCards.length;
 
     return isEscoba
@@ -479,7 +556,9 @@ export class GameController {
 
     const capturedSum = captureCards.reduce((sum, c) => sum + c.value, 0);
     const total = handCard.value + capturedSum;
-    const terms = [handCard.value, ...captureCards.map((c) => c.value)].join(" + ");
+    const terms = [handCard.value, ...captureCards.map((c) => c.value)].join(
+      " + ",
+    );
     const base = GAME_MESSAGES.RESOLUTION_CAPTURE(
       captureCards.length,
       terms,

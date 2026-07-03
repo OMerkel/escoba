@@ -34,8 +34,9 @@
   --spacing-xl: 32px;
 
   /* Typography */
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, sans-serif;
+  --font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
   --font-size-xs: 10px;
   --font-size-sm: 12px;
   --font-size-base: 16px;
@@ -95,8 +96,10 @@ body {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: transform var(--transition-base), box-shadow
-    var(--transition-base), filter var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    filter var(--transition-base);
 }
 
 .card-image {
@@ -127,18 +130,24 @@ body {
 
 /* Selected card state */
 .card-selected {
-  box-shadow: 0 0 0 3px var(--color-accent), 0 4px 12px rgba(74, 157, 111, 0.6);
+  box-shadow:
+    0 0 0 3px var(--color-accent),
+    0 4px 12px rgba(74, 157, 111, 0.6);
   transform: translateY(-12px) scale(1.05);
 }
 
 .card-selected:hover {
-  box-shadow: 0 0 0 3px var(--color-accent), 0 8px 20px rgba(74, 157, 111, 0.8);
+  box-shadow:
+    0 0 0 3px var(--color-accent),
+    0 8px 20px rgba(74, 157, 111, 0.8);
   transform: translateY(-14px) scale(1.08);
 }
 
 /* Capture preview highlight uses the same visual language as user selection */
 .capture-preview-highlight {
-  box-shadow: 0 0 0 3px var(--color-accent), 0 8px 20px rgba(74, 157, 111, 0.8);
+  box-shadow:
+    0 0 0 3px var(--color-accent),
+    0 8px 20px rgba(74, 157, 111, 0.8);
   transform: translateY(-14px) scale(1.08);
 }
 
@@ -881,11 +890,15 @@ body {
 }
 
 .difficulty-recommended {
-  box-shadow: 0 0 0 2px var(--color-accent), inset 0 0 0 1px var(--color-accent);
+  box-shadow:
+    0 0 0 2px var(--color-accent),
+    inset 0 0 0 1px var(--color-accent);
 }
 
 .difficulty-selected {
-  box-shadow: 0 0 0 3px #f0c040, inset 0 0 0 1px #f0c040;
+  box-shadow:
+    0 0 0 3px #f0c040,
+    inset 0 0 0 1px #f0c040;
   outline: none;
 }
 
@@ -1218,5 +1231,4 @@ body {
     break-inside: avoid;
     page-break-inside: avoid;
   }
-
 }

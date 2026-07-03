@@ -6,11 +6,17 @@
  * Immutable dataclass pattern: all state transitions create new GameState instances
  */
 
+import { DEFAULT_MANDATORY_CAPTURE_DISPLAY_DURATION_MS } from "../config/configuration.js";
+
 export class GameState {
   constructor(config = {}) {
     // Game configuration
     this.targetScore = config.targetScore || 21;
     this.setentaMethod = config.setentaMethod || "prime"; // "prime" | "simplified" | "numerical"
+    this.captureDisplayDurationMs =
+      config.captureDisplayDurationMs ??
+      config.mandatoryCaptureDisplayDurationMs ??
+      DEFAULT_MANDATORY_CAPTURE_DISPLAY_DURATION_MS;
 
     // Phase management
     this.phase = config.phase || "setup"; // setup | dealing | playing | captureDisplay | redeal | roundEnd | scoring | gameEnd

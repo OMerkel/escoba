@@ -84,12 +84,15 @@ describe("Game Engine", () => {
       expect(state.players[1].pile).toHaveLength(4);
       expect(state.stats.escobas[1]).toBe(1);
       expect(state.stats.totalEscobas).toBe(1);
-      expect(engine.lastInitialSpecialEvent).toEqual({
-        sum: 15,
-        escobas: 1,
-        dealerIndex: 1,
-        cardsAwarded: 4,
-      });
+      expect(engine.lastInitialSpecialEvent).toEqual(
+        expect.objectContaining({
+          sum: 15,
+          escobas: 1,
+          dealerIndex: 1,
+          cardsAwarded: 4,
+        }),
+      );
+      expect(engine.lastInitialSpecialEvent.tableCards).toHaveLength(4);
 
       initialDealSpy.mockRestore();
     });
@@ -123,12 +126,15 @@ describe("Game Engine", () => {
       expect(state.players[1].pile).toHaveLength(4);
       expect(state.stats.escobas[1]).toBe(2);
       expect(state.stats.totalEscobas).toBe(2);
-      expect(engine.lastInitialSpecialEvent).toEqual({
-        sum: 30,
-        escobas: 2,
-        dealerIndex: 1,
-        cardsAwarded: 4,
-      });
+      expect(engine.lastInitialSpecialEvent).toEqual(
+        expect.objectContaining({
+          sum: 30,
+          escobas: 2,
+          dealerIndex: 1,
+          cardsAwarded: 4,
+        }),
+      );
+      expect(engine.lastInitialSpecialEvent.tableCards).toHaveLength(4);
 
       initialDealSpy.mockRestore();
     });
@@ -151,6 +157,18 @@ describe("Game Engine", () => {
       expect(state.players[1].score).toBe(0);
       expect(state.players[0].hand).toEqual([]);
       expect(state.players[1].hand).toEqual([]);
+    });
+
+    it("should carry configured capture display duration into game state", () => {
+      const customEngine = new GameEngine({
+        players: ["Player 1", "Player 2"],
+        captureDisplayDurationMs: 1337,
+      });
+
+      customEngine.startGame();
+      const state = customEngine.getGameState();
+
+      expect(state.captureDisplayDurationMs).toBe(1337);
     });
   });
 
@@ -224,7 +242,9 @@ describe("Game Engine", () => {
 
       expect(summary).toBeDefined();
       expect(summary.categories.length).toBe(5);
-      const setentaCategory = summary.categories.find((c) => c.key === "setenta");
+      const setentaCategory = summary.categories.find(
+        (c) => c.key === "setenta",
+      );
       expect(setentaCategory).toBeDefined();
       expect(setentaCategory.raw[0]).toContain("O:");
       expect(setentaCategory.raw[0]).toContain("C:");

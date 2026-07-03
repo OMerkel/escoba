@@ -357,6 +357,8 @@ Feature: Special Initial Condition 15 (FR-10.1)
 Given initial table with cards summing to 15 (e.g., [7, 6, As, As]) When
 checking special condition Then dealer should immediately capture all 4 cards
 And dealer should receive 1 escoba point
+And opening mandatory capture should be shown in `captureDisplay` before normal
+play continues
 
 ### Scenario: Initial Table Totals 30
 
@@ -365,6 +367,8 @@ Feature: Special Initial Condition 30 (FR-10.2)
 Given initial table with cards summing to 30 (e.g., [10, 10, 10, 0]) When
 checking special condition Then dealer should immediately capture all 4 cards
 And dealer should receive 2 escoba points
+And opening mandatory capture should be shown in `captureDisplay` before normal
+play continues
 
 ---
 
@@ -711,6 +715,14 @@ Feature: Statistics Display (FR-14.5)
 Given game completed When accessing Statistics view Then display should show
 player names, scores, win rates, escoba counts
 
+### Scenario: Display Opening Mandatory Capture Before First Turn
+
+Feature: Opening Special Capture Visualization (FR-10.1, FR-10.2, FR-UI-1.1)
+
+Given initial table totals 15 or 30 When a new game starts Then UI should enter
+`captureDisplay` and show the opening captured set before first turn input is
+accepted
+
 ---
 
 ## test-configuration.test.js
@@ -753,6 +765,13 @@ Feature: Negamax Configuration (FR-17.2)
 Given configuration loaded When negamax strategy initializes Then iterative
 deepening should use configured timeout window And alpha-beta pruning windows
 should be initialized from config
+
+### Scenario: Configure Mandatory Capture Display Duration
+
+Feature: Mandatory Capture Display Timing (FR-UI-1.3)
+
+Given configuration with mandatoryCaptureDisplayDurationMs = 6000 When
+capture-display flow runs Then preview visibility duration should be 6000ms
 
 ---
 
