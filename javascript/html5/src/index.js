@@ -44,12 +44,12 @@ function updateGameBadge(gameController) {
 
   const pt = gameController.playerTypes;
   const p0 = {
-    label: pt[0] === "human" ? "Human South" : "AI South",
+    label: pt[0] === "human" ? "Player South" : "AI South",
     icon: pt[0] === "human" ? "🧑" : "🤖",
     score: gs.players[0].score,
   };
   const p1 = {
-    label: pt[1] === "human" ? "Human North" : "AI North",
+    label: pt[1] === "human" ? "Player North" : "AI North",
     icon: pt[1] === "human" ? "🧑" : "🤖",
     score: gs.players[1].score,
   };

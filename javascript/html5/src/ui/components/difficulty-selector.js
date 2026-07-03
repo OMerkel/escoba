@@ -80,7 +80,7 @@ export class DifficultySelector {
     const infoBox = document.createElement("div");
     infoBox.className = "difficulty-info";
     infoBox.innerHTML = `
-      <p><strong>AI Win Rate:</strong> Expected AI win rate at each difficulty level. Human win rate = 100% - AI win rate.</p>
+      <p><strong>AI Win Rate:</strong> Expected AI win rate at each difficulty level. Player win rate = 100% - AI win rate.</p>
       <p><strong>Recommended:</strong> Start with Medium for a balanced experience.</p>
     `;
     container.appendChild(infoBox);

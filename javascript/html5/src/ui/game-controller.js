@@ -92,9 +92,10 @@ export class GameController {
     this.gameView.clearBoardStatus(false);
     this.gameView.render(this.gameState);
 
-    const p0label = this.playerTypes[0] === "human" ? "You" : "AI";
+    const p0label =
+      this.playerTypes[0] === "human" ? "Player South" : "AI South";
     const p1label =
-      this.playerTypes[1] === "human" ? "You" : `${difficulty} AI`;
+      this.playerTypes[1] === "human" ? "Player North" : "AI North";
     this.gameView.showMessage(`${p0label} vs ${p1label}`, "info");
 
     const initialSpecial = this.gameEngine.lastInitialSpecialEvent;
@@ -102,8 +103,8 @@ export class GameController {
       const dealerLabel =
         this.playerTypes[initialSpecial.dealerIndex] === "human"
           ? initialSpecial.dealerIndex === 0
-            ? "Human South"
-            : "Human North"
+            ? "Player South"
+            : "Player North"
           : initialSpecial.dealerIndex === 0
             ? "AI South"
             : "AI North";
@@ -447,8 +448,8 @@ export class GameController {
     this.roundSummaryOpen = true;
 
     const playerLabels = [
-      this.playerTypes[0] === "human" ? "Human South" : "AI South",
-      this.playerTypes[1] === "human" ? "Human North" : "AI North",
+      this.playerTypes[0] === "human" ? "Player South" : "AI South",
+      this.playerTypes[1] === "human" ? "Player North" : "AI North",
     ];
 
     await this.gameView.showRoundSummaryOverlay({

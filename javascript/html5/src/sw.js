@@ -1,4 +1,4 @@
-const CACHE_VERSION = "escoba-pwa-v1";
+const CACHE_VERSION = "escoba-pwa-v2";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 

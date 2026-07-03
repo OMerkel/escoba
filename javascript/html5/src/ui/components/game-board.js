@@ -140,7 +140,7 @@ export class GameBoard {
   _playerLabel(playerIdx, position) {
     const type = this.playerTypes[playerIdx];
     const pos = position === "north" ? "North" : "South";
-    return type === "human" ? `Human ${pos}` : `AI ${pos}`;
+    return type === "human" ? `Player ${pos}` : `AI ${pos}`;
   }
 
   /**
