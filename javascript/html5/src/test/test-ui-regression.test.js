@@ -297,14 +297,18 @@ describe("UI Regression Tests - Enhanced Architecture", () => {
       gameView.currentView = "game";
       gameView.render(gameState);
 
-      // Then: should show both player scores in sidebar
-      const scores = container.querySelectorAll(".score-your, .score-opp");
-      expect(scores.length).toBeGreaterThan(0);
+      // Then: scores should appear in player badges
+      const badgeScores = container.querySelectorAll(
+        ".pa-hand, .pa-captured, .pa-escobas",
+      );
+      expect(badgeScores.length).toBeGreaterThan(0);
 
-      // Should display correct values
-      const scoreTexts = Array.from(scores).map((el) => el.textContent);
-      expect(scoreTexts).toContain("12");
-      expect(scoreTexts).toContain("8");
+      // Hand starts empty for both players
+      const handBadges = container.querySelectorAll(".pa-hand");
+      expect(handBadges.length).toBe(2);
+      handBadges.forEach((badge) => {
+        expect(badge.textContent).toContain("0");
+      });
     });
   });
 

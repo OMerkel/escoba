@@ -46,7 +46,7 @@ export class GameBoard {
     board.className = "game-board";
     board.setAttribute("role", "main");
 
-    // Main game area (two-column: board + sidebar)
+    // Main game area
     const gameArea = document.createElement("div");
     gameArea.className = "game-area";
 
@@ -63,7 +63,6 @@ export class GameBoard {
     boardCenter.appendChild(this.createHandArea(0, "south"));
 
     gameArea.appendChild(boardCenter);
-    gameArea.appendChild(this.createSidebar());
 
     board.appendChild(gameArea);
     board.appendChild(this.createGameControls());
@@ -361,64 +360,6 @@ export class GameBoard {
     });
     controls.appendChild(playBtn);
     return controls;
-  }
-
-  /**
-   * Create sidebar with condensed stats
-   */
-  createSidebar() {
-    const sidebar = document.createElement("div");
-    sidebar.className = "game-sidebar";
-    sidebar.setAttribute("aria-label", "Game statistics");
-
-    // Scores card
-    const scoresCard = document.createElement("div");
-    scoresCard.className = "sidebar-card";
-    scoresCard.innerHTML = `
-      <h3>Scores</h3>
-      <div class="score-compact">
-        <div>${this._playerLabel(0, "south")}: <span class="score-your">${this.gameState.players[0].score}</span></div>
-        <div>${this._playerLabel(1, "north")}: <span class="score-opp">${this.gameState.players[1].score}</span></div>
-      </div>
-    `;
-    sidebar.appendChild(scoresCard);
-
-    // South stats
-    const yourStatsCard = document.createElement("div");
-    yourStatsCard.className = "sidebar-card";
-    yourStatsCard.innerHTML = `
-      <h3>${this._playerLabel(0, "south")}</h3>
-      <div class="stats-list">
-        <div>Cards: ${this.gameState.players[0].pile.length}</div>
-        <div>Hand: ${this.gameState.players[0].hand.length}</div>
-      </div>
-    `;
-    sidebar.appendChild(yourStatsCard);
-
-    // North stats
-    const oppStatsCard = document.createElement("div");
-    oppStatsCard.className = "sidebar-card";
-    oppStatsCard.innerHTML = `
-      <h3>${this._playerLabel(1, "north")}</h3>
-      <div class="stats-list">
-        <div>Cards: ${this.gameState.players[1].pile.length}</div>
-        <div>Hand: ${this.gameState.players[1].hand.length}</div>
-      </div>
-    `;
-    sidebar.appendChild(oppStatsCard);
-
-    // Table info card
-    const tableCard = document.createElement("div");
-    tableCard.className = "sidebar-card";
-    tableCard.innerHTML = `
-      <h3>Table</h3>
-      <div class="stats-list">
-        <div>Cards: ${this.gameState.tableCards.length}</div>
-      </div>
-    `;
-    sidebar.appendChild(tableCard);
-
-    return sidebar;
   }
 
   /**

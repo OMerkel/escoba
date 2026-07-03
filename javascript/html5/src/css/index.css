@@ -100,12 +100,30 @@ body {
 }
 
 .badge-turn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 3px 8px;
   border-radius: 12px;
   background: #0f3a1f;
   border: 1px solid #4a9a5a;
   color: #c8e6c9;
   font-weight: 500;
+}
+
+.badge-turn-spinner {
+  width: 10px;
+  height: 10px;
+  border: 2px solid rgba(200, 230, 201, 0.35);
+  border-top-color: #c8e6c9;
+  border-radius: 50%;
+  animation: badge-turn-spin 0.9s linear infinite;
+}
+
+@keyframes badge-turn-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ===== APP CONTENT ===== */

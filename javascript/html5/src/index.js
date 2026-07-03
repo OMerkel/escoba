@@ -55,11 +55,11 @@ function updateGameBadge(gameController) {
   };
 
   const currentIdx = gs.currentPlayerIndex;
-  const turnLabel = currentIdx === 0 ? p0.label : p1.label;
+  const turnLabel = currentIdx === 0 ? "▼" : "▲";
   const turnIcon = currentIdx === 0 ? p0.icon : p1.icon;
 
   badge.innerHTML = `
-    <span class="badge-turn" title="Current turn">${turnIcon} ${turnLabel}'s turn</span>
+    <span class="badge-turn" title="Current turn"><span class="badge-turn-spinner" aria-hidden="true"></span>${turnIcon}${turnLabel}</span>
     <span class="badge-player ${currentIdx === 0 ? "badge-active" : ""}" title="${p0.label}">
       ${p0.icon} <strong>${p0.score}</strong>
     </span>
