@@ -51,8 +51,9 @@
   --transition-slow: 500ms ease-out;
 
   /* Card sizes */
+  --card-aspect-ratio: 5 / 8;
   --card-width: 75px;
-  --card-height: 120px;
+  --card-height: calc(var(--card-width) * 8 / 5);
   --card-width-lg: 113px;
   --card-height-lg: 180px;
 }
@@ -83,7 +84,6 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 4px;
-  min-height: 100vh;
 }
 
 /* =============================================================================
@@ -307,7 +307,6 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 4px;
-  min-height: 70vh;
 }
 
 /* Central game board (left side) */
@@ -315,7 +314,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  overflow-y: auto;
 }
 
 /* Opponent area - condensed (kept for compatibility) */
@@ -966,7 +964,6 @@ body {
 @media (max-width: 1200px) {
   :root {
     --card-width: 70px;
-    --card-height: 112px;
   }
 
   .game-header {
@@ -988,8 +985,7 @@ body {
 
 @media (max-width: 768px) {
   :root {
-    --card-width: 60px;
-    --card-height: 96px;
+    --card-width: 64px;
     --spacing-lg: 16px;
   }
 
@@ -999,7 +995,7 @@ body {
 
   .game-area {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto auto;
   }
 
   .opponent-area {
@@ -1016,7 +1012,7 @@ body {
   }
 
   .play-area {
-    min-height: 200px;
+    min-height: clamp(132px, 24vh, 168px);
     padding: 4px;
   }
 
@@ -1050,10 +1046,86 @@ body {
   }
 }
 
+@media (max-height: 520px) and (orientation: landscape) {
+  :root {
+    --card-width: 54px;
+  }
+
+  #app {
+    padding: 2px;
+  }
+
+  .game-board {
+    gap: 2px;
+  }
+
+  .game-board-center {
+    gap: 4px;
+  }
+
+  .player-area {
+    padding: 2px 4px;
+    gap: 2px;
+  }
+
+  .player-area-label {
+    gap: 4px;
+  }
+
+  .pa-badge {
+    padding: 1px 6px;
+    font-size: 0.72rem;
+  }
+
+  .play-area {
+    min-height: clamp(92px, 26vh, 116px);
+    padding: 2px;
+    border-width: 2px;
+  }
+
+  .play-area-instruction {
+    font-size: 9px;
+    padding: 1px 4px;
+  }
+
+  .table-container {
+    gap: 14px;
+  }
+
+  .game-controls {
+    gap: 4px;
+    padding: 2px;
+  }
+
+  .btn {
+    min-width: 88px;
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1024px) and (orientation: portrait) {
+  :root {
+    --card-width: 72px;
+  }
+
+  .game-area {
+    min-height: auto;
+  }
+
+  .play-area {
+    min-height: clamp(138px, 20vh, 164px);
+  }
+
+  .game-controls {
+    gap: 6px;
+    padding: 3px;
+  }
+}
+
 @media (max-width: 480px) {
   :root {
     --card-width: 52px;
-    --card-height: 83px;
     --font-size-3xl: 24px;
     --font-size-2xl: 18px;
   }

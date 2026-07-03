@@ -135,6 +135,31 @@ This app supports installation and offline play-oriented caching.
 3. Reload the page; previously fetched app assets should continue to load from
    cache.
 
+## Responsive Layout Strategy
+
+The in-game layout uses a height-aware responsive strategy to reduce scrolling
+during active play while keeping cards readable across devices.
+
+### Design Goals
+
+- Avoid vertical overflow during gameplay where possible.
+- Keep cards at a playable size (not too small on tablet portrait).
+- Preserve badge visibility in the title bar on narrow or short screens.
+
+### Breakpoint Intent
+
+- Desktop landscape: full-size layout, no special constraints.
+- Tablet portrait: cards are kept larger than phone-tier sizes.
+- Phone landscape (short height): compact spacing and smaller cards to fit game
+  controls and play area without forced page scroll.
+- Phone portrait: compact but readable defaults.
+
+### Implementation Notes
+
+- Uses both width and height/orientation media queries.
+- Avoids large fixed min-height blocks that force extra vertical space.
+- Reduces title bar density on short landscape screens so badges remain visible.
+
 ### Testing
 
 ```bash

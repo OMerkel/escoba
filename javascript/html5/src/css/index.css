@@ -129,6 +129,35 @@ body {
   }
 }
 
+@media (max-height: 520px) and (orientation: landscape) {
+  #title-bar {
+    gap: 8px;
+    padding: 2px 10px;
+    min-height: 40px;
+  }
+
+  #title-bar h1 {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  #game-badge {
+    gap: 6px;
+    font-size: 0.74rem;
+  }
+
+  .badge-turn,
+  .badge-player {
+    padding: 2px 6px;
+  }
+
+  .badge-turn-spinner {
+    width: 8px;
+    height: 8px;
+    border-width: 1.5px;
+  }
+}
+
 /* ===== APP CONTENT ===== */
 #app {
   flex: 1;
