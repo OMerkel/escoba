@@ -34,6 +34,14 @@ export function evaluateMoveQuality(move, gameState) {
   if (move.isCapture) {
     score += 100;
 
+    // Prefer captures that secure Oros cards from the table.
+    if (Array.isArray(move.capture)) {
+      const capturedOros = move.capture.filter(
+        (capturedCard) => capturedCard?.suit === "oros",
+      ).length;
+      score += capturedOros * 25;
+    }
+
     // 7 of oros bonus (most valuable single card)
     if (move.card && move.card.rank === "7" && move.card.suit === "oros") {
       score += 50;

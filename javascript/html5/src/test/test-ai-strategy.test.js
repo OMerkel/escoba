@@ -161,6 +161,25 @@ describe("AI Strategy - Greedy", () => {
       // Then: should return null
       expect(move).toBeNull();
     });
+
+    it("should prefer a capture that includes an oros table card", () => {
+      // Given: two valid captures for the same hand card
+      // 7 + 8 = 15 (no oros) vs 7 + 5 + 3 = 15 (includes 5-oros)
+      const hand = [new Card("espadas", "7", 7)];
+      const tableCards = [
+        new Card("copas", "sota", 8),
+        new Card("oros", "5", 5),
+        new Card("bastos", "3", 3),
+      ];
+
+      // When: selecting greedy move
+      const move = selectGreedyMove(hand, tableCards, {});
+
+      // Then: capture should include the oros card
+      expect(move).not.toBeNull();
+      expect(move.isCapture).toBe(true);
+      expect(move.capture.some((card) => card.suit === "oros")).toBe(true);
+    });
   });
 
   describe("Move Priority Functions", () => {

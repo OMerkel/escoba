@@ -17,6 +17,8 @@ export class GameBoard {
     this.playerTypes = playerTypes; // ["human"|"ai", "human"|"ai"] — index 0=south, 1=north
     this.boardStatus = boardStatus;
     this.selectedCards = [];
+    this.selectedHandCard = null;
+    this.selectedHandComponent = null;
     this.onMoveSelected = null;
   }
 
@@ -28,6 +30,8 @@ export class GameBoard {
     this.gameState = gameState;
     this.boardStatus = boardStatus;
     this.selectedCards = []; // Clear selections when re-rendering
+    this.selectedHandCard = null;
+    this.selectedHandComponent = null;
     container.innerHTML = "";
     const board = this.createElement();
     container.appendChild(board);
@@ -426,14 +430,54 @@ export class GameBoard {
     }
 
     const cardData = cardComponent.getCardData();
+    const currentHand =
+      this.gameState?.players?.[this.gameState.currentPlayerIndex]?.hand || [];
+    const isHandCard = currentHand.some(
+      (c) => c.suit === cardData.suit && c.rank === cardData.rank,
+    );
+
     const index = this.selectedCards.findIndex(
       (c) => c.suit === cardData.suit && c.rank === cardData.rank,
     );
 
     if (index >= 0) {
       this.selectedCards.splice(index, 1);
+
+      if (
+        isHandCard &&
+        this.selectedHandCard &&
+        this.selectedHandCard.suit === cardData.suit &&
+        this.selectedHandCard.rank === cardData.rank
+      ) {
+        this.selectedHandCard = null;
+        this.selectedHandComponent = null;
+      }
     } else {
+      if (isHandCard && this.selectedHandCard) {
+        const previousHandIndex = this.selectedCards.findIndex(
+          (c) =>
+            c.suit === this.selectedHandCard.suit &&
+            c.rank === this.selectedHandCard.rank,
+        );
+        if (previousHandIndex >= 0) {
+          this.selectedCards.splice(previousHandIndex, 1);
+        }
+
+        if (
+          this.selectedHandComponent &&
+          this.selectedHandComponent !== cardComponent &&
+          typeof this.selectedHandComponent.setSelected === "function"
+        ) {
+          this.selectedHandComponent.setSelected(false);
+        }
+      }
+
       this.selectedCards.push(cardData);
+
+      if (isHandCard) {
+        this.selectedHandCard = { suit: cardData.suit, rank: cardData.rank };
+        this.selectedHandComponent = cardComponent;
+      }
     }
 
     // Visual state is already updated by CardComponent.handleSelect
@@ -461,6 +505,8 @@ export class GameBoard {
     }
 
     this.selectedCards = [];
+    this.selectedHandCard = null;
+    this.selectedHandComponent = null;
     const cards = document.querySelectorAll(".card-selected");
     cards.forEach((card) => {
       card.classList.remove("card-selected");

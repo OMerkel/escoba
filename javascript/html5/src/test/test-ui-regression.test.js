@@ -833,6 +833,41 @@ describe("UI Regression Tests - Enhanced Architecture", () => {
         rank: handCard.rank,
       });
     });
+
+    it("should keep only one selected hand card at a time", () => {
+      // Given: two hand cards
+      const handCard1 = new Card("oros", "5", 5);
+      const handCard2 = new Card("copas", "3", 3);
+      const gameState = {
+        currentPlayerIndex: 0,
+        players: [
+          { score: 0, hand: [handCard1, handCard2], pile: [] },
+          { score: 0, hand: [], pile: [] },
+        ],
+        tableCards: [],
+      };
+
+      const gameBoard = new GameBoard(gameState);
+
+      const mockHandComponent1 = {
+        getCardData: () => ({ suit: handCard1.suit, rank: handCard1.rank }),
+        setSelected: vi.fn(),
+      };
+      const mockHandComponent2 = {
+        getCardData: () => ({ suit: handCard2.suit, rank: handCard2.rank }),
+        setSelected: vi.fn(),
+      };
+
+      // When: selecting first hand card, then another hand card
+      gameBoard.toggleCardSelection(mockHandComponent1);
+      gameBoard.toggleCardSelection(mockHandComponent2);
+
+      // Then: first should be deselected and only second remains selected
+      expect(mockHandComponent1.setSelected).toHaveBeenCalledWith(false);
+      expect(gameBoard.selectedCards).toEqual([
+        { suit: handCard2.suit, rank: handCard2.rank },
+      ]);
+    });
   });
 
   describe("Complete Game Flow (E2E Simulation)", () => {
