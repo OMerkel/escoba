@@ -51,9 +51,9 @@
   --transition-slow: 500ms ease-out;
 
   /* Card sizes */
-  --card-width: 84px;
-  --card-height: 130px;
-  --card-width-lg: 120px;
+  --card-width: 75px;
+  --card-height: 120px;
+  --card-width-lg: 113px;
   --card-height-lg: 180px;
 }
 
@@ -93,7 +93,7 @@ body {
 .card-element {
   position: relative;
   display: inline-block;
-  border-radius: 8px;
+  border-radius: 1px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   transition:
@@ -132,6 +132,8 @@ body {
 .card-selected {
   box-shadow:
     0 0 0 3px var(--color-accent),
+    0 -2px 0 3px var(--color-accent),
+    0 2px 0 3px var(--color-accent),
     0 4px 12px rgba(74, 157, 111, 0.6);
   transform: translateY(-12px) scale(1.05);
 }
@@ -139,6 +141,8 @@ body {
 .card-selected:hover {
   box-shadow:
     0 0 0 3px var(--color-accent),
+    0 -2px 0 3px var(--color-accent),
+    0 2px 0 3px var(--color-accent),
     0 8px 20px rgba(74, 157, 111, 0.8);
   transform: translateY(-14px) scale(1.08);
 }
@@ -147,6 +151,8 @@ body {
 .capture-preview-highlight {
   box-shadow:
     0 0 0 3px var(--color-accent),
+    0 -2px 0 3px var(--color-accent),
+    0 2px 0 3px var(--color-accent),
     0 8px 20px rgba(74, 157, 111, 0.8);
   transform: translateY(-14px) scale(1.08);
 }
@@ -959,7 +965,7 @@ body {
 
 @media (max-width: 1200px) {
   :root {
-    --card-width: 74px;
+    --card-width: 70px;
     --card-height: 112px;
   }
 
@@ -982,8 +988,8 @@ body {
 
 @media (max-width: 768px) {
   :root {
-    --card-width: 66px;
-    --card-height: 99px;
+    --card-width: 60px;
+    --card-height: 96px;
     --spacing-lg: 16px;
   }
 
@@ -1046,8 +1052,8 @@ body {
 
 @media (max-width: 480px) {
   :root {
-    --card-width: 56px;
-    --card-height: 84px;
+    --card-width: 52px;
+    --card-height: 83px;
     --font-size-3xl: 24px;
     --font-size-2xl: 18px;
   }
