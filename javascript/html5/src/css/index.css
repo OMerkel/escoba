@@ -23,11 +23,12 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 12px;
-  padding: 0 16px;
-  height: 48px;
+  padding: 4px 16px;
+  min-height: 48px;
   background: #0f2a1a;
   border-bottom: 2px solid #2d5a3d;
   flex-shrink: 0;
@@ -64,18 +65,20 @@ body {
   font-weight: 600;
   color: #c8e6c9;
   letter-spacing: 0.02em;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.15;
 }
 
 /* ===== GAME BADGE (title-bar right) ===== */
 #game-badge {
-  margin-left: auto;
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 0.82rem;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: visible;
+  flex-shrink: 0;
 }
 
 .badge-player {
