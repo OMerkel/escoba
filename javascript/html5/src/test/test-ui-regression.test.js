@@ -299,16 +299,14 @@ describe("UI Regression Tests - Enhanced Architecture", () => {
 
       // Then: scores should appear in player badges
       const badgeScores = container.querySelectorAll(
-        ".pa-hand, .pa-captured, .pa-escobas",
+        ".pa-dealer, .pa-captured, .pa-escobas",
       );
       expect(badgeScores.length).toBeGreaterThan(0);
 
-      // Hand starts empty for both players
-      const handBadges = container.querySelectorAll(".pa-hand");
-      expect(handBadges.length).toBe(2);
-      handBadges.forEach((badge) => {
-        expect(badge.textContent).toContain("0");
-      });
+      // Exactly one dealer badge is shown
+      const dealerBadges = container.querySelectorAll(".pa-dealer");
+      expect(dealerBadges.length).toBe(1);
+      expect(dealerBadges[0].textContent).toContain("Dealer");
     });
   });
 
@@ -397,10 +395,12 @@ describe("UI Regression Tests - Enhanced Architecture", () => {
       const southArea = boardElement.querySelector(".player-area-south");
       expect(southArea).not.toBeNull();
 
-      // Badge shows hand count as a number
+      // Hand count badge is removed; dealer badge is shown in one player area
       const handBadge = southArea.querySelector(".pa-hand");
-      expect(handBadge).not.toBeNull();
-      expect(handBadge.textContent).toContain("3");
+      expect(handBadge).toBeNull();
+
+      const dealerBadges = boardElement.querySelectorAll(".pa-dealer");
+      expect(dealerBadges.length).toBe(1);
     });
 
     it("should show captured cards display", () => {

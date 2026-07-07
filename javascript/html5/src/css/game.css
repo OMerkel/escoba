@@ -355,10 +355,10 @@ body {
   line-height: 1.6;
 }
 
-.pa-hand {
-  background: rgba(74, 157, 111, 0.15);
-  border: 1px solid #3a7a4a;
-  color: #c8e6c9;
+.pa-dealer {
+  background: rgba(187, 94, 43, 0.2);
+  border: 1px solid #c06a36;
+  color: #ffd9c2;
 }
 .pa-captured {
   background: rgba(74, 120, 180, 0.15);

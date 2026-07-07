@@ -166,6 +166,10 @@ export class GameBoard {
     const hand = this.gameState.players[playerIdx].hand;
     const pile = this.gameState.players[playerIdx].pile;
     const escobas = this.gameState.stats?.escobas?.[playerIdx] ?? 0;
+    const dealerIndex = Number.isInteger(this.gameState.dealerIndex)
+      ? this.gameState.dealerIndex
+      : 1;
+    const isDealer = dealerIndex === playerIdx;
 
     const area = document.createElement("section");
     area.className = `player-area player-area-${position} ${isHuman ? "player-type-human" : "player-type-ai"}`;
@@ -176,7 +180,7 @@ export class GameBoard {
     heading.className = "player-area-label";
     heading.innerHTML = `
       <span class="pa-name">${label}</span>
-      <span class="pa-badge pa-hand" title="Cards in hand">🖐️ ${hand.length}</span>
+      ${isDealer ? '<span class="pa-badge pa-dealer" title="Active dealer">🎴 Dealer</span>' : ""}
       <span class="pa-badge pa-captured" title="Captured cards">📦 ${pile.length}</span>
       <span class="pa-badge pa-escobas" title="Escobas (sweeps)">🧹 ${escobas}</span>
     `;

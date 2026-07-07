@@ -52,6 +52,8 @@ describe("Game Engine", () => {
       expect(state.players[0].hand.length).toBeGreaterThan(0);
       expect(state.players[1].hand.length).toBeGreaterThan(0);
       expect(state.tableCards.length).toBeGreaterThan(0);
+      expect(state.dealerIndex).toBe(1);
+      expect(state.currentPlayerIndex).toBe(0);
     });
 
     it("should apply special initial table sum 15: dealer captures table and gets 1 escoba", () => {
@@ -194,6 +196,26 @@ describe("Game Engine", () => {
       expect(typeof isComplete).toBe("boolean");
     });
 
+    it("should alternate dealer and first player each new round", () => {
+      engine.startGame();
+      const round1 = engine.getGameState();
+
+      expect(round1.dealerIndex).toBe(1);
+      expect(round1.currentPlayerIndex).toBe(0);
+
+      engine.startNextRound();
+      const round2 = engine.getGameState();
+
+      expect(round2.dealerIndex).toBe(0);
+      expect(round2.currentPlayerIndex).toBe(1);
+
+      engine.startNextRound();
+      const round3 = engine.getGameState();
+
+      expect(round3.dealerIndex).toBe(1);
+      expect(round3.currentPlayerIndex).toBe(0);
+    });
+
     it("should complete round and score", () => {
       // Given: round in progress
       engine.startGame();
@@ -278,11 +300,12 @@ describe("Game Engine", () => {
     it("should validate move before execution", () => {
       // Given: game with invalid move
       engine.startGame();
+      const currentPlayer = engine.getCurrentPlayer();
       const invalidCard = new Card("oros", "5", 5); // Not in hand
 
       // When: executing invalid move
       const move = { card: invalidCard, isCapture: false };
-      const result = engine.playTurn(0, move);
+      const result = engine.playTurn(currentPlayer, move);
 
       // Then: should reject invalid move
       expect(result.success).toBe(false);

@@ -28,6 +28,11 @@ export class GameState {
       { id: "p2", name: "Player 2", score: 0, hand: [], pile: [] },
     ];
     this.currentPlayerIndex = config.currentPlayerIndex || 0;
+    this.dealerIndex = Number.isInteger(config.dealerIndex)
+      ? config.dealerIndex === 0
+        ? 0
+        : 1
+      : 1;
 
     // Table state
     this.tableCards = config.tableCards || [];

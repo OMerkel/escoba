@@ -44,6 +44,10 @@ export class GameEngine {
     this.gameState = new GameState(normalizedConfig);
     this.moveHistory = [];
     this.currentRound = 0;
+    const configuredDealer = Number.isInteger(normalizedConfig.dealerIndex)
+      ? normalizedConfig.dealerIndex
+      : 1;
+    this.currentDealerIndex = configuredDealer === 0 ? 0 : 1;
     this.deck = null;
     this.lastRoundSummary = null;
     this.lastInitialSpecialEvent = null;
@@ -81,10 +85,7 @@ export class GameEngine {
     // Special initial condition: opening table totals 15 or 30.
     // In that case the dealer immediately captures those table cards and scores
     // 1 escoba (sum 15) or 2 escobas (sum 30), then play starts with empty table.
-    const dealerIndex = Number.isInteger(this.config.dealerIndex)
-      ? this.config.dealerIndex
-      : 1;
-    const clampedDealerIndex = dealerIndex === 0 ? 0 : 1;
+    const clampedDealerIndex = this.currentDealerIndex === 0 ? 0 : 1;
     const initialTableSum = dealResult.tableCards.reduce(
       (acc, card) => acc + card.value,
       0,
@@ -112,13 +113,19 @@ export class GameEngine {
     initialEscobas[clampedDealerIndex] = specialInitialEscobas;
 
     // Create new game state with dealt cards
+    this.config = {
+      ...this.config,
+      dealerIndex: clampedDealerIndex,
+    };
+
     this.gameState = new GameState({
       ...this.config,
       players,
       tableCards: tableCardsAfterInitialRule,
       deck: dealResult.remainingDeck,
       phase: "playing",
-      currentPlayerIndex: 0,
+      currentPlayerIndex: 1 - clampedDealerIndex,
+      dealerIndex: clampedDealerIndex,
       stats: {
         escobas: initialEscobas,
         cardsCaptured: [[], []],
@@ -465,6 +472,7 @@ export class GameEngine {
    */
   startNextRound() {
     this.currentRound += 1;
+    this.currentDealerIndex = 1 - this.currentDealerIndex;
     return this.startGame();
   }
 
@@ -647,6 +655,10 @@ export class GameEngine {
     this.gameState = new GameState(this.config);
     this.moveHistory = [];
     this.currentRound = 0;
+    const configuredDealer = Number.isInteger(this.config.dealerIndex)
+      ? this.config.dealerIndex
+      : 1;
+    this.currentDealerIndex = configuredDealer === 0 ? 0 : 1;
     this.deck = null;
   }
 }
