@@ -79,6 +79,22 @@ Controller restores final opening state (table empty, cards in dealer pile)
 Normal turn progression begins
 ```
 
+### Escoba Resolution Rule Flow (FR-6.3 + FR-6.4 + FR-11.3)
+
+```text
+Capture resolves and removes selected table cards
+    ↓
+If table not empty: not an escoba
+    ↓
+If table empty: check shared escoba-scoring helper
+    ↓
+Automatic final table award at round end? never escoba
+    ↓
+Otherwise, if option "no escoba on final card" is enabled:
+    if hand empty AND stock exhausted => no escoba
+    else => escoba counts normally
+```
+
 ### Turn Execution (AI Player)
 
 ```text

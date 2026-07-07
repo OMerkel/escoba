@@ -45,7 +45,7 @@ CI and scripted local validation.
 The active suite covers:
 
 - card modeling, deck creation, and dealing;
-- capture legality, escoba behavior, and scoring;
+- capture legality, escoba behavior, house-rule edge cases, and scoring;
 - game-state and engine transitions;
 - AI manager, strategy, negamax, MCTS, and heuristics;
 - persistence and tournament flows;
@@ -60,6 +60,8 @@ Implementation-specific quality checks currently reflected in code and tests:
   `config/configuration.js`;
 - shell-level integration behavior (overlay/options flow and runtime restarts)
   centered in `index.js` + `game-controller.js`.
+- final-card-of-round escoba suppression semantics, including the distinction
+  between intermediate hand exhaustion and true round-end stock exhaustion.
 
 **Coverage Target**: at least 80 percent for line, branch, statement, and
 function coverage in the current Vitest configuration.

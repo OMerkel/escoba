@@ -96,8 +96,12 @@ classDiagram
 
     class EscobaEngine {
         +isEscoba(before, after) bool
-        +countEscobas(state, player) int
-        +awardFinalTableCards(state, player) GameState
+        +awardEscoba(player) Player
+    }
+
+    class EscobaRules {
+        +isTableSweep(tableCards, captureSet) bool
+        +isScoringEscoba(config) bool
     }
 
     GameState --> Deck: contains
@@ -108,6 +112,7 @@ classDiagram
     CaptureEngine --> GameState: updates
     ScoringEngine --> GameState: evaluates
     EscobaEngine --> GameState: detects sweep
+    EscobaRules --> GameState: evaluates round-end sweep rule
 ```
 
 ---
@@ -292,9 +297,9 @@ flowchart TD
     CheckCaptures -->|No| FindDiscard[Find safest discard]
     FindDiscard --> ReturnDiscard[Return discard]
 
-    CheckCaptures -->|Yes| FilterEscobas{Any escobas?}
+    CheckCaptures -->|Yes| FilterEscobas{Any scoring escobas?}
 
-    FilterEscobas -->|Yes| Escobas[Evaluate escoba moves]
+    FilterEscobas -->|Yes| Escobas[Evaluate scoring escoba moves]
     Escobas --> EscobaPriority{7 of Oros in escoba?}
     EscobaPriority -->|Yes| ReturnEscoba7[Return 7 of Oros escoba]
     EscobaPriority -->|No| ReturnEscoba[Return highest-value escoba]
@@ -450,9 +455,9 @@ flowchart TD
     CheckForced --> ExecuteCapture[Execute capture and remove cards]
     ExecuteCapture --> MoveToPlayer[Add to player pile]
     MoveToPlayer --> CheckEscoba[Check if table is now empty]
-    CheckEscoba --> RecordEscoba{Escoba?}
+    CheckEscoba --> RecordEscoba{Scoring escoba?}
     RecordEscoba -->|Yes| AddEscoba[Record escoba point]
-    RecordEscoba -->|No| SkipEscoba[No escoba]
+    RecordEscoba -->|No| SkipEscoba[No escoba under active rule]
 
     AddEscoba --> UpdateState[Update GameState]
     SkipEscoba --> UpdateState

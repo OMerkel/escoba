@@ -6,6 +6,7 @@
  */
 
 import { CaptureEngine } from "../core/capture.js";
+import { isScoringEscoba } from "../core/escoba.js";
 
 /**
  * RISK-AVERSE GREEDY: Prioritizes safe, guaranteed captures
@@ -16,7 +17,6 @@ import { CaptureEngine } from "../core/capture.js";
  * Difficulty: MEDIUM - More predictable, plays defensively
  */
 export function selectRiskAverseMove(hand, tableCards, gameState) {
-  void gameState;
   if (!hand || hand.length === 0) {
     return null;
   }
@@ -30,10 +30,16 @@ export function selectRiskAverseMove(hand, tableCards, gameState) {
 
     if (captures.length > 0) {
       for (const capture of captures) {
-        const isEscoba = capture.length === tableCards.length;
+        const isEscoba = isScoringEscoba({
+          tableCards,
+          captureSet: capture,
+          remainingHandCount: hand.length - 1,
+          remainingDeckCount: gameState?.deck?.cards?.length || 0,
+          enableFinalCardEscoba: gameState?.enableFinalCardEscoba ?? false,
+        });
 
         // Only consider escoba in this phase
-        if (isEscoba) {
+          if (isEscoba) {
           const move = {
             card,
             capture,
@@ -142,7 +148,6 @@ export function selectRiskAverseMove(hand, tableCards, gameState) {
  * Difficulty: HARD - Wins value trades consistently
  */
 export function selectCardPreservingMove(hand, tableCards, gameState) {
-  void gameState;
   if (!hand || hand.length === 0) {
     return null;
   }
@@ -191,7 +196,13 @@ export function selectCardPreservingMove(hand, tableCards, gameState) {
           captureValue += cardValueScore(capturedCard);
         }
 
-        const isEscoba = capture.length === tableCards.length;
+        const isEscoba = isScoringEscoba({
+          tableCards,
+          captureSet: capture,
+          remainingHandCount: hand.length - 1,
+          remainingDeckCount: gameState?.deck?.cards?.length || 0,
+          enableFinalCardEscoba: gameState?.enableFinalCardEscoba ?? false,
+        });
         const move = {
           card,
           capture,
@@ -285,7 +296,13 @@ export function selectMomentumMove(hand, tableCards, gameState) {
 
     if (captures.length > 0) {
       for (const capture of captures) {
-        const isEscoba = capture.length === tableCards.length;
+        const isEscoba = isScoringEscoba({
+          tableCards,
+          captureSet: capture,
+          remainingHandCount: hand.length - 1,
+          remainingDeckCount: gameState?.deck?.cards?.length || 0,
+          enableFinalCardEscoba: gameState?.enableFinalCardEscoba ?? false,
+        });
         const move = {
           card,
           capture,

@@ -7,6 +7,7 @@
  */
 
 import { CaptureEngine } from "../core/capture.js";
+import { isScoringEscoba } from "../core/escoba.js";
 import { selectGreedyMove } from "./ai-strategy.js";
 import {
   countHighValueCards,
@@ -99,7 +100,13 @@ export function selectCardPreservingEndgameMove(hand, tableCards, gameState) {
           captureValue += cardValueScore(capturedCard);
         }
 
-        const isEscoba = capture.length === tableCards.length;
+        const isEscoba = isScoringEscoba({
+          tableCards,
+          captureSet: capture,
+          remainingHandCount: hand.length - 1,
+          remainingDeckCount: gameState?.deck?.cards?.length || 0,
+          enableFinalCardEscoba: gameState?.enableFinalCardEscoba ?? false,
+        });
         const move = {
           card,
           capture,
@@ -203,7 +210,13 @@ export function selectMomentumEndgameMove(hand, tableCards, gameState) {
 
     if (captures.length > 0) {
       for (const capture of captures) {
-        const isEscoba = capture.length === tableCards.length;
+        const isEscoba = isScoringEscoba({
+          tableCards,
+          captureSet: capture,
+          remainingHandCount: hand.length - 1,
+          remainingDeckCount: gameState?.deck?.cards?.length || 0,
+          enableFinalCardEscoba: gameState?.enableFinalCardEscoba ?? false,
+        });
         const move = {
           card,
           capture,

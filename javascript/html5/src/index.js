@@ -139,6 +139,46 @@ function readPlayerTypesFromForm() {
   });
 }
 
+function buildHouseRulesSection(gameController) {
+  const container = document.getElementById("options-house-rules");
+  if (!container) return;
+  container.innerHTML = "";
+
+  const section = document.createElement("div");
+  section.className = "house-rules-section";
+
+  const heading = document.createElement("h3");
+  heading.textContent = "House Rules";
+  section.appendChild(heading);
+
+  const row = document.createElement("label");
+  row.className = "house-rule-row";
+  row.htmlFor = "options-final-card-escoba";
+  row.innerHTML = `
+    <input
+      type="checkbox"
+      id="options-final-card-escoba"
+      ${gameController.enableFinalCardEscoba ? "checked" : ""}
+    />
+    <span>Score Escoba on final card of round</span>
+  `;
+  section.appendChild(row);
+
+  const help = document.createElement("p");
+  help.className = "house-rule-help";
+  help.textContent =
+    "Default: off. A table-clearing capture with your final card of the round does not score an Escoba.";
+  section.appendChild(help);
+
+  container.appendChild(section);
+}
+
+function readFinalCardEscobaFromForm() {
+  return Boolean(
+    document.getElementById("options-final-card-escoba")?.checked,
+  );
+}
+
 /**
  * Wire up the side panel and overlay pages
  */
@@ -177,6 +217,7 @@ function initSidePanel(gameController) {
         optionsSnapshot = {
           difficulty: gameController.selectedDifficulty,
           playerTypes: [...gameController.playerTypes],
+          enableFinalCardEscoba: gameController.enableFinalCardEscoba,
         };
       }
     }
@@ -194,6 +235,7 @@ function initSidePanel(gameController) {
       newPlayerTypes.forEach((t, i) => {
         if (t) gameController.playerTypes[i] = t;
       });
+      gameController.enableFinalCardEscoba = readFinalCardEscobaFromForm();
 
       // Determine effective difficulty (may have been changed via click)
       const effectiveDifficulty = gameController.selectedDifficulty;
@@ -201,7 +243,9 @@ function initSidePanel(gameController) {
       const changed =
         optionsSnapshot.difficulty !== effectiveDifficulty ||
         optionsSnapshot.playerTypes[0] !== gameController.playerTypes[0] ||
-        optionsSnapshot.playerTypes[1] !== gameController.playerTypes[1];
+        optionsSnapshot.playerTypes[1] !== gameController.playerTypes[1] ||
+        optionsSnapshot.enableFinalCardEscoba !==
+          gameController.enableFinalCardEscoba;
 
       optionsSnapshot = null;
 
@@ -256,6 +300,7 @@ function initSidePanel(gameController) {
  */
 function populateOptions(gameController) {
   buildPlayerTypeSection(gameController);
+  buildHouseRulesSection(gameController);
 
   const diffContainer = document.getElementById("options-difficulty-container");
   if (diffContainer) {

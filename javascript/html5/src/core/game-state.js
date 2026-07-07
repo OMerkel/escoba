@@ -17,6 +17,7 @@ export class GameState {
       config.captureDisplayDurationMs ??
       config.mandatoryCaptureDisplayDurationMs ??
       DEFAULT_MANDATORY_CAPTURE_DISPLAY_DURATION_MS;
+    this.enableFinalCardEscoba = config.enableFinalCardEscoba ?? false;
 
     // Phase management
     this.phase = config.phase || "setup"; // setup | dealing | playing | captureDisplay | redeal | roundEnd | scoring | gameEnd

@@ -11,9 +11,11 @@ import {
 } from "../ai/greedy-variants.js";
 import {
   createConfiguration,
+  DEFAULT_CONFIG,
   DEFAULT_MANDATORY_CAPTURE_DISPLAY_DURATION_MS,
 } from "../config/configuration.js";
 import { GAME_MESSAGES } from "../config/messages.js";
+import { isScoringEscoba } from "../core/escoba.js";
 import { GameEngine } from "../core/game-engine.js";
 import { Logger } from "../utils/logger.js";
 
@@ -30,6 +32,7 @@ export class GameController {
     this.gameActive = false;
     this.isAITurn = false;
     this.roundSummaryOpen = false;
+    this.enableFinalCardEscoba = DEFAULT_CONFIG.enableFinalCardEscoba;
     // playerTypes[0] = "human"|"ai", playerTypes[1] = "human"|"ai"
     this.playerTypes = ["human", "ai"];
 
@@ -78,7 +81,9 @@ export class GameController {
 
     this.selectedDifficulty = difficulty;
     this.aiStrategy = this.getAIStrategy(difficulty);
-    const gameConfig = createConfiguration();
+    const gameConfig = createConfiguration({
+      enableFinalCardEscoba: this.enableFinalCardEscoba,
+    });
     this.gameEngine = new GameEngine(gameConfig);
     this.gameEngine.startGame();
     this.gameState = this.gameEngine.gameState;
@@ -308,7 +313,13 @@ export class GameController {
           );
           return;
         }
-        const isEscoba = captureCards.length === tableCards.length;
+        const isEscoba = isScoringEscoba({
+          tableCards,
+          captureSet: captureCards,
+          remainingHandCount: hand.length - 1,
+          remainingDeckCount: this.gameState.deck?.cards?.length || 0,
+          enableFinalCardEscoba: this.enableFinalCardEscoba,
+        });
         moveData = {
           card: handCard,
           capture: captureCards,
@@ -553,7 +564,15 @@ export class GameController {
     const terms = [handCard.value, ...captureCards.map((c) => c.value)].join(
       " + ",
     );
-    const isEscoba = captureCards.length === this.gameState.tableCards.length;
+    const handCards = this.gameState.players[this.gameState.currentPlayerIndex]
+      ?.hand || [];
+    const isEscoba = isScoringEscoba({
+      tableCards: this.gameState.tableCards,
+      captureSet: captureCards,
+      remainingHandCount: handCards.length - 1,
+      remainingDeckCount: this.gameState.deck?.cards?.length || 0,
+      enableFinalCardEscoba: this.enableFinalCardEscoba,
+    });
 
     return isEscoba
       ? GAME_MESSAGES.PREVIEW_ESCOBA(terms, total)

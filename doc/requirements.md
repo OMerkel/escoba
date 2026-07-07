@@ -197,6 +197,8 @@ the table face-up.
 - **Requirement:** An escoba occurs when a capture removes all cards from the
   table (table becomes empty after capture).
 - **Details:** Escoba must occur during regular play (not final round award).
+  Depending on FR-11.3, the implementation may also suppress escoba scoring for
+  a table-clearing capture made with the player's final card of the round.
 - **Testable:** Unit test plays card that clears table; verify escoba flag set,
   point awarded.
 
@@ -216,10 +218,9 @@ table.
 
 - **Details:** Only captures made during play count; automatic final award is
   never an escoba.
-- **Testable:** Unit test plays last card to clear table; verify no escoba point
-  awarded; test distinguishes between
-
-play-phase capture and end-of-round award.
+- **Testable:** Unit test processes automatic final table award; verify no
+  escoba point awarded; test distinguishes between play-phase capture and
+  end-of-round award.
 
 #### FR-6.4 Optional: No Escoba on Final Hand Card
 
@@ -228,12 +229,13 @@ play-phase capture and end-of-round award.
 
 escoba, even if it clears the table.
 
-- **Details:** Escobas only count if made while player has additional cards in
-  hand.
+- **Details:** "Final card of the round" means both conditions hold after the
+  capture: the player has no cards left in hand, and the stock is exhausted so
+  no re-deal is possible. If the player empties a 3-card hand while stock still
+  remains, a table-clearing capture still counts as an escoba.
 - **Testable:** Unit test with flag for this rule; verify escoba rejected when
-  capture is with final card; verify escoba
-
-allowed when cards remain in hand.
+  capture is with the final card of the round; verify escoba allowed when cards
+  remain in hand or when stock remains for a re-deal.
 
 ---
 
@@ -416,10 +418,12 @@ correctly.
 
 #### FR-11.3 House Rule: Final Card No Escoba
 
-- **Requirement:** Optional rule disabling escobas on final hand cards must be
-  configurable (default off).
+- **Requirement:** Optional rule disabling escobas on the final card of the
+  round must be configurable in the options UI (default off in requirements,
+  default on/off in product may differ by release choice and must be documented).
 - **Testable:** Unit test with flag enabled/disabled; verify escoba behavior
-  changes.
+  changes only when a table-clearing capture empties the player's hand and the
+  stock is exhausted.
 
 ---
 

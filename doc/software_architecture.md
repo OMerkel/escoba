@@ -115,6 +115,10 @@ The browser application is responsible for:
 - **Opening Capture Visualization Coupling**: FR-10 opening-table 15/30
   auto-captures are rendered through the same FR-UI-1 mandatory capture-display
   flow as normal moves before gameplay continues.
+- **Shared Escoba Rule Helper**: table-clearing captures are filtered through a
+  central escoba-scoring helper so the engine, previews, and AI all agree on
+  the distinction between normal sweeps, automatic final awards, and the
+  optional "final card of round" suppression rule.
 - **Session-Scoped Statistics**: simplifies implementation while keeping richer
   persistent statistics as a future enhancement.
 - **SGF Support via Persistence Module**: SGF parse/export capabilities are

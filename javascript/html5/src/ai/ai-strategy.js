@@ -5,6 +5,7 @@
  */
 
 import { CaptureEngine } from "../core/capture.js";
+import { isScoringEscoba } from "../core/escoba.js";
 
 /**
  * Evaluate move quality score
@@ -98,7 +99,13 @@ export function selectGreedyMove(hand, tableCards, gameState) {
     if (captures.length > 0) {
       // Has valid captures - check all combinations
       for (const capture of captures) {
-        const isEscoba = capture.length === tableCards.length;
+        const isEscoba = isScoringEscoba({
+          tableCards,
+          captureSet: capture,
+          remainingHandCount: hand.length - 1,
+          remainingDeckCount: gameState?.deck?.cards?.length || 0,
+          enableFinalCardEscoba: gameState?.enableFinalCardEscoba ?? false,
+        });
         const move = {
           card,
           capture,

@@ -8,6 +8,7 @@ import { getAIMove } from "../ai/ai-manager.js";
 import { CaptureEngine } from "./capture.js";
 import { DealingEngine } from "./dealing.js";
 import { Deck } from "./deck.js";
+import { isScoringEscoba } from "./escoba.js";
 import { GameState } from "./game-state.js";
 import { ScoringEngine } from "./scoring.js";
 
@@ -192,8 +193,16 @@ export class GameEngine {
           (tc) => !move.capture.some((c) => c.equals(tc)),
         );
 
-        // Check for escoba
-        if (move.isEscoba) {
+        // Check for escoba using configured house rule.
+        if (
+          isScoringEscoba({
+            tableCards: this.gameState.tableCards,
+            captureSet: move.capture,
+            remainingHandCount: newHand.length,
+            remainingDeckCount: this.gameState.deck?.cards?.length || 0,
+            enableFinalCardEscoba: this.config.enableFinalCardEscoba,
+          })
+        ) {
           newStats.escobas[playerIndex] += 1;
           isEscoba = true;
         }
@@ -208,7 +217,10 @@ export class GameEngine {
       this.moveHistory.push({
         round: this.currentRound,
         player: playerIndex,
-        move,
+        move: {
+          ...move,
+          isEscoba,
+        },
         timestamp: Date.now(),
       });
 
@@ -623,7 +635,13 @@ export class GameEngine {
           card,
           capture,
           isCapture: true,
-          isEscoba: capture.length === this.gameState.tableCards.length,
+          isEscoba: isScoringEscoba({
+            tableCards: this.gameState.tableCards,
+            captureSet: capture,
+            remainingHandCount: hand.length - 1,
+            remainingDeckCount: this.gameState.deck?.cards?.length || 0,
+            enableFinalCardEscoba: this.gameState.enableFinalCardEscoba,
+          }),
         });
       }
     }

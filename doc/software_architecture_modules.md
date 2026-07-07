@@ -152,15 +152,24 @@ Implements FR-4 (capture mechanics) and FR-4.4 (single-complement priority).
 ```javascript
 class EscobaEngine {
   static isEscoba(tableBeforeCapture, tableAfterCapture)
-  static countEscobas(gameState, playerId)
-  static awardFinalTableCards(gameState, lastCapturerId)
-  static checkInitialTableSpecial(table)
+  static awardEscoba(player)
 }
+
+function isTableSweep(tableCards, captureSet)
+function isScoringEscoba({
+  tableCards,
+  captureSet,
+  remainingHandCount,
+  remainingDeckCount,
+  enableFinalCardEscoba
+})
 ```
 
 **Responsibility**: Escoba detection, point attribution, special cases.
 Implements FR-6 (escoba), FR-6.3 (no escoba on final award), FR-10 (special
-cases).
+cases), and FR-11.3 (optional no-escoba-on-final-card-of-round rule). The
+shared helper ensures the same rule is used by engine scoring, UI preview text,
+and AI move generation.
 
 ---
 
@@ -482,7 +491,7 @@ export const AI_STRATEGIES = ["greedy", "negamax", "mcts"]
 export const DEFAULT_CONFIG = {
   targetScore: 21,
   setentaMethod: "numerical",
-  enableFinalCardEscoba: true,
+  enableFinalCardEscoba: false,
   aiStrategy: "greedy",
   aiResponseTime: 5000,
   mctsRolloutsPerDecision: 1000

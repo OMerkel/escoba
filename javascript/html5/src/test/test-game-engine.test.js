@@ -371,6 +371,162 @@ describe("Game Engine", () => {
       expect(engine.isRoundComplete()).toBe(true);
       expect(engine.getGameState().phase).toBe("playing");
     });
+
+    it("should not score escoba on a final card of the round by default", () => {
+      // Given: a table-clearing capture with the player's final card of the round
+      const customEngine = new GameEngine({
+        targetScore: 21,
+        players: ["Player 1", "Player 2"],
+        enableFinalCardEscoba: false,
+      });
+      const finalCard = new Card("oros", "7", 7);
+      const state = customEngine.getGameState();
+
+      customEngine.gameState = state.transition("playing", {
+        players: [
+          {
+            id: "p1",
+            name: "Player 1",
+            score: 0,
+            hand: [finalCard],
+            pile: [],
+          },
+          {
+            id: "p2",
+            name: "Player 2",
+            score: 0,
+            hand: [new Card("copas", "2", 2)],
+            pile: [],
+          },
+        ],
+        tableCards: [new Card("espadas", "6", 6), new Card("bastos", "2", 2)],
+        deck: { cards: [] },
+        currentPlayerIndex: 0,
+        stats: {
+          escobas: [0, 0],
+          cardsCaptured: [[], []],
+          totalEscobas: 0,
+        },
+        enableFinalCardEscoba: false,
+      });
+
+      // When: the capture is resolved under the default house rule
+      const result = customEngine.playTurn(0, {
+        card: finalCard,
+        capture: customEngine.gameState.tableCards,
+        isCapture: true,
+        isEscoba: true,
+      });
+
+      // Then: the sweep does not score an escoba
+      expect(result.success).toBe(true);
+      expect(result.escoba).toBe(false);
+      expect(customEngine.getGameState().stats.escobas[0]).toBe(0);
+    });
+
+    it("should score escoba on a final card of the round when the rule is enabled", () => {
+      // Given: a table-clearing capture with the player's final card of the round
+      const customEngine = new GameEngine({
+        targetScore: 21,
+        players: ["Player 1", "Player 2"],
+        enableFinalCardEscoba: true,
+      });
+      const finalCard = new Card("oros", "7", 7);
+      const state = customEngine.getGameState();
+
+      customEngine.gameState = state.transition("playing", {
+        players: [
+          {
+            id: "p1",
+            name: "Player 1",
+            score: 0,
+            hand: [finalCard],
+            pile: [],
+          },
+          {
+            id: "p2",
+            name: "Player 2",
+            score: 0,
+            hand: [new Card("copas", "2", 2)],
+            pile: [],
+          },
+        ],
+        tableCards: [new Card("espadas", "6", 6), new Card("bastos", "2", 2)],
+        deck: { cards: [] },
+        currentPlayerIndex: 0,
+        stats: {
+          escobas: [0, 0],
+          cardsCaptured: [[], []],
+          totalEscobas: 0,
+        },
+        enableFinalCardEscoba: true,
+      });
+
+      // When: the capture is resolved with the option enabled
+      const result = customEngine.playTurn(0, {
+        card: finalCard,
+        capture: customEngine.gameState.tableCards,
+        isCapture: true,
+        isEscoba: true,
+      });
+
+      // Then: the sweep scores an escoba normally
+      expect(result.success).toBe(true);
+      expect(result.escoba).toBe(true);
+      expect(customEngine.getGameState().stats.escobas[0]).toBe(1);
+    });
+
+    it("should still score escoba on the last card of an intermediate hand when stock remains", () => {
+      // Given: a table-clearing capture empties the hand but a re-deal is still possible
+      const customEngine = new GameEngine({
+        targetScore: 21,
+        players: ["Player 1", "Player 2"],
+        enableFinalCardEscoba: false,
+      });
+      const finalCardInHand = new Card("oros", "7", 7);
+      const state = customEngine.getGameState();
+
+      customEngine.gameState = state.transition("playing", {
+        players: [
+          {
+            id: "p1",
+            name: "Player 1",
+            score: 0,
+            hand: [finalCardInHand],
+            pile: [],
+          },
+          {
+            id: "p2",
+            name: "Player 2",
+            score: 0,
+            hand: [new Card("copas", "2", 2)],
+            pile: [],
+          },
+        ],
+        tableCards: [new Card("espadas", "6", 6), new Card("bastos", "2", 2)],
+        deck: { cards: [new Card("copas", "3", 3)] },
+        currentPlayerIndex: 0,
+        stats: {
+          escobas: [0, 0],
+          cardsCaptured: [[], []],
+          totalEscobas: 0,
+        },
+        enableFinalCardEscoba: false,
+      });
+
+      // When: the capture is resolved before the round is actually over
+      const result = customEngine.playTurn(0, {
+        card: finalCardInHand,
+        capture: customEngine.gameState.tableCards,
+        isCapture: true,
+        isEscoba: true,
+      });
+
+      // Then: the sweep still scores an escoba because stock remains
+      expect(result.success).toBe(true);
+      expect(result.escoba).toBe(true);
+      expect(customEngine.getGameState().stats.escobas[0]).toBe(1);
+    });
   });
 
   describe("AI Move Execution", () => {

@@ -350,6 +350,30 @@ Feature: Escoba Point Attribution (FR-6.2)
 Given a player with 0 escobas When awarding an escoba Then escobas count should
 increment to 1
 
+### Scenario: Automatic Final Table Award Is Not Escoba
+
+Feature: End-of-Round Final Award (FR-6.3)
+
+Given leftover table cards and a last capturer at round end When awarding those
+leftover cards automatically Then the cards should be added to that player's
+pile And no escoba should be awarded
+
+### Scenario: Intermediate-Hand Sweep Still Scores Escoba
+
+Feature: Escoba Detection Across Re-deals (FR-6.4)
+
+Given house rule "no escoba on final card" enabled And a table-clearing capture
+using a player's last card in hand And stock still remains for a re-deal When
+resolving the capture Then escoba should still be awarded
+
+### Scenario: Final-Round Sweep Does Not Score Under House Rule
+
+Feature: Final Card of Round Escoba Suppression (FR-6.4, FR-11.3)
+
+Given house rule "no escoba on final card" enabled And a table-clearing capture
+using a player's last card in hand And stock is exhausted When resolving the
+capture Then escoba should NOT be awarded
+
 ### Scenario: Initial Table Totals 15
 
 Feature: Special Initial Condition 15 (FR-10.1)
@@ -745,11 +769,12 @@ Given configuration with setentaMethod "numerical" When scoring round Then 7=21,
 
 Feature: House Rule Configuration (FR-11.3)
 
-Given house rule "no escoba on final card" enabled When capture occurs with last
-hand card and clears table Then escoba should NOT be awarded
+Given house rule "no escoba on final card" enabled When capture occurs with the
+player's final card of the round and clears table Then escoba should NOT be
+awarded
 
-Given house rule disabled When capture occurs with last hand card and clears
-table Then escoba SHOULD be awarded
+Given house rule disabled When capture occurs with the player's final card of
+the round and clears table Then escoba SHOULD be awarded
 
 ### Scenario: Configure MCTS Rollout Count
 

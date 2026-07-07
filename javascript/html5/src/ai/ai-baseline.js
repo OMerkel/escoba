@@ -15,6 +15,7 @@
  */
 
 import { CaptureEngine } from "../core/capture.js";
+import { isScoringEscoba } from "../core/escoba.js";
 
 /**
  * NEUTRAL BASELINE: Simple, transparent move evaluation
@@ -32,7 +33,6 @@ import { CaptureEngine } from "../core/capture.js";
  * @returns {Object} Selected move {card, capture?, isCapture, isEscoba}
  */
 export function selectBaselineMove(hand, tableCards, gameState) {
-  void gameState;
   if (!hand || hand.length === 0) {
     return null;
   }
@@ -47,7 +47,13 @@ export function selectBaselineMove(hand, tableCards, gameState) {
     if (captures.length > 0) {
       // This card can capture
       for (const capture of captures) {
-        const isEscoba = capture.length === tableCards.length;
+        const isEscoba = isScoringEscoba({
+          tableCards,
+          captureSet: capture,
+          remainingHandCount: hand.length - 1,
+          remainingDeckCount: gameState?.deck?.cards?.length || 0,
+          enableFinalCardEscoba: gameState?.enableFinalCardEscoba ?? false,
+        });
 
         const move = {
           card,

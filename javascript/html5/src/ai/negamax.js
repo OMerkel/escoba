@@ -11,6 +11,7 @@
  */
 
 import { CaptureEngine } from "../core/capture.js";
+import { isScoringEscoba } from "../core/escoba.js";
 import { selectGreedyMove } from "./ai-strategy.js";
 import {
   estimateMoveQuality,
@@ -69,7 +70,7 @@ export function evaluatePosition(gameState, move = null, opponentMoves = []) {
  * @param {Object[]} tableCards - Cards on table
  * @returns {Object[]} Array of possible moves, ordered by quality
  */
-export function generateMoves(hand, tableCards) {
+export function generateMoves(hand, tableCards, gameState = null) {
   if (!hand || hand.length === 0) return [];
 
   const moves = [];
@@ -91,7 +92,13 @@ export function generateMoves(hand, tableCards) {
           card,
           isCapture: true,
           capture: captureGroup,
-          isEscoba: captureGroup.length === tableCards.length,
+          isEscoba: isScoringEscoba({
+            tableCards,
+            captureSet: captureGroup,
+            remainingHandCount: hand.length - 1,
+            remainingDeckCount: gameState?.deck?.cards?.length || 0,
+            enableFinalCardEscoba: gameState?.enableFinalCardEscoba ?? false,
+          }),
         });
       }
     }
@@ -138,7 +145,7 @@ export function negamaxSearch(gameState, depth, alpha, beta, hand, tableCards) {
   let bestMove = null;
   let alphaValue = alpha;
 
-  const moves = generateMoves(hand, tableCards);
+  const moves = generateMoves(hand, tableCards, gameState);
 
   for (const move of moves) {
     // Apply move (simplified - just evaluate without state mutation)

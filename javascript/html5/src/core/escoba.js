@@ -42,3 +42,55 @@ export const EscobaEngine = {
     return false;
   },
 };
+
+/**
+ * Check whether a capture clears the entire table.
+ *
+ * @param {Card[]} tableCards
+ * @param {Card[]} captureSet
+ * @returns {boolean}
+ */
+export function isTableSweep(tableCards, captureSet) {
+  return (
+    Array.isArray(tableCards) &&
+    Array.isArray(captureSet) &&
+    tableCards.length > 0 &&
+    captureSet.length === tableCards.length
+  );
+}
+
+/**
+ * Determine whether a table-clearing capture scores as an escoba.
+ *
+ * When the house rule is enabled, captures played with the player's final
+ * card of the round do not score an escoba even if they clear the table.
+ *
+ * @param {Object} config
+ * @param {Card[]} config.tableCards
+ * @param {Card[]} config.captureSet
+ * @param {number} config.remainingHandCount
+ * @param {number} config.remainingDeckCount
+ * @param {boolean} config.enableFinalCardEscoba
+ * @returns {boolean}
+ */
+export function isScoringEscoba({
+  tableCards,
+  captureSet,
+  remainingHandCount,
+  remainingDeckCount,
+  enableFinalCardEscoba = true,
+}) {
+  if (!isTableSweep(tableCards, captureSet)) {
+    return false;
+  }
+
+  if (
+    !enableFinalCardEscoba &&
+    remainingHandCount === 0 &&
+    remainingDeckCount === 0
+  ) {
+    return false;
+  }
+
+  return true;
+}

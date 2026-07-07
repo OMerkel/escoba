@@ -23,6 +23,7 @@ describe("Configuration", () => {
     expect(config.targetScore).toBe(21);
     expect(config.setentaMethod).toBe("numerical");
     expect(config.aiStrategy).toBe("greedy");
+    expect(config.enableFinalCardEscoba).toBe(false);
     expect(config.mandatoryCaptureDisplayDurationMs).toBe(
       DEFAULT_MANDATORY_CAPTURE_DISPLAY_DURATION_MS,
     );

@@ -242,6 +242,15 @@ Important distinction:
 - clearing the table by a normal capture during play is an escoba,
 - receiving leftover table cards at the very end of the round is not an escoba.
 
+Default digital ruleset clarification:
+
+- a table-clearing capture made with a player's final card of the round does
+  not score an escoba by default,
+- this applies only when that player has no cards left in hand after the
+  capture and the stock is already exhausted,
+- clearing the table with the last card of an intermediate 3-card hand still
+  counts as an escoba because a re-deal is still pending.
+
 ## If No Capture Is Possible
 
 If the card you play cannot capture any set summing to 15, the card remains face
@@ -523,10 +532,12 @@ captures an overwhelming majority.
 
 Some groups rule that a capture made with a player's final card of the round
 does not count as an escoba, even if it legally clears the entire table. Under
-this rule, only captures made during the round when a player still has cards
-remaining in hand can count as escobas. This prevents an accidental sweep by the
-final-card player from scoring, and maintains the principle that only deliberate
-captures earn the escoba point.
+this rule, the capture fails to score an escoba only if it clears the table,
+leaves that player with no cards in hand, and the stock is already exhausted so
+no further re-deal is possible. It does not suppress escobas made with the last
+card of an intermediate 3-card hand. This prevents an accidental sweep by the
+final-round player from scoring, and maintains the principle that only
+deliberate captures during continuing play earn the escoba point.
 
 ### Variant 6: Deal Direction
 
@@ -560,6 +571,8 @@ If you want one clean ruleset with no ambiguity, use the following defaults:
 - Captures must total exactly 15.
 - If a played card can capture, the capture is mandatory.
 - Each complete sweep of the table during play is 1 escoba worth 1 point.
+- By default, a sweep made with the final card of the round does not score an
+  escoba.
 - Leftover table cards at round end go to the last capturer and do not count as
   an escoba.
 - Score 1 point each for Cards, Oros, 7 of Oros, and Prime.

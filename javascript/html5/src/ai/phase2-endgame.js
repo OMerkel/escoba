@@ -8,6 +8,7 @@
  */
 
 import { CaptureEngine } from "../core/capture.js";
+import { isScoringEscoba } from "../core/escoba.js";
 
 /**
  * Detect if we're in critical endgame phase
@@ -84,7 +85,13 @@ export function endgameHighValueCapture(hand, tableCards, gameState) {
         const highValueCaptured = countHighValueCards(capture);
 
         if (highValueCaptured > 0) {
-          const isEscoba = capture.length === tableCards.length;
+          const isEscoba = isScoringEscoba({
+            tableCards,
+            captureSet: capture,
+            remainingHandCount: hand.length - 1,
+            remainingDeckCount: gameState?.deck?.cards?.length || 0,
+            enableFinalCardEscoba: gameState?.enableFinalCardEscoba ?? false,
+          });
           const move = {
             card,
             capture,
@@ -190,7 +197,13 @@ export function endgameForcePlay(hand, tableCards, gameState) {
         const captureHasHighValue = countHighValueCards(capture) > 0;
 
         if (tableHasHighValue && captureHasHighValue) {
-          const isEscoba = capture.length === tableCards.length;
+          const isEscoba = isScoringEscoba({
+            tableCards,
+            captureSet: capture,
+            remainingHandCount: hand.length - 1,
+            remainingDeckCount: gameState?.deck?.cards?.length || 0,
+            enableFinalCardEscoba: gameState?.enableFinalCardEscoba ?? false,
+          });
           const move = {
             card,
             capture,

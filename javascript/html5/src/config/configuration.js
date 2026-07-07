@@ -16,7 +16,7 @@ export const DEFAULT_CONFIG = {
   setentaMethod: "numerical", // FR-11.2: "numerical", "prime", or "simplified"
 
   // House rules
-  enableFinalCardEscoba: true, // FR-11.3: Award escoba point for final card capture
+  enableFinalCardEscoba: false, // FR-11.3: By default, do not award escoba on the final card of the round
   initialConditionRules: true, // FR-10: Handle initial 15/30 conditions
 
   // AI settings
