@@ -1,7 +1,9 @@
 """Generate a traditional-style 40-card Baraja Espanola SVG deck."""
 
-# flake8: noqa
+# ruff: noqa: E501
+# flake8: noqa: E501
 # pylint: disable=line-too-long
+
 from __future__ import annotations
 
 import argparse
@@ -104,8 +106,63 @@ def svg_document(body: str, title: str) -> str:
 def card_frame(suit: Suit) -> str:
     """Return the clean frame used by every card face - simplified for small sizes."""
 
+    gaps_by_suit = {
+        "oros": 0,
+        "copas": 1,
+        "espadas": 2,
+        "bastos": 3,
+    }
+    gap_count = gaps_by_suit.get(suit.key, 0)
+
+    frame_x = 40
+    frame_y = 40
+    frame_w = 670
+    frame_h = 1120
+    frame_rx = 24
+    frame_left = frame_x
+    frame_right = frame_x + frame_w
+    frame_top = frame_y
+    frame_bottom = frame_y + frame_h
+
+    side_lines = f'''  <path d="M {frame_left} {frame_top + frame_rx} V {frame_bottom - frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
+    <path d="M {frame_right} {frame_top + frame_rx} V {frame_bottom - frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
+    <path d="M {frame_left} {frame_top + frame_rx} A {frame_rx} {frame_rx} 0 0 1 {frame_left + frame_rx} {frame_top}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
+    <path d="M {frame_right - frame_rx} {frame_top} A {frame_rx} {frame_rx} 0 0 1 {frame_right} {frame_top + frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
+    <path d="M {frame_left} {frame_bottom - frame_rx} A {frame_rx} {frame_rx} 0 0 0 {frame_left + frame_rx} {frame_bottom}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
+    <path d="M {frame_right - frame_rx} {frame_bottom} A {frame_rx} {frame_rx} 0 0 0 {frame_right} {frame_bottom - frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="5"/>'''
+
+    inner_left = frame_left + frame_rx
+    inner_right = frame_right - frame_rx
+    top_y = frame_top
+    bottom_y = frame_bottom
+
+    if gap_count == 0:
+        top_bottom = f'''  <path d="M {inner_left} {top_y} H {inner_right}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
+  <path d="M {inner_left} {bottom_y} H {inner_right}" fill="none" stroke="{suit.banner}" stroke-width="5"/>'''
+    else:
+        total_width = inner_right - inner_left
+        segment_count = gap_count + 1
+        gap_width = 96.0
+        seg_width = (total_width - (gap_count * gap_width)) / segment_count
+
+        top_segments: list[str] = []
+        bottom_segments: list[str] = []
+        cursor = float(inner_left)
+        for _ in range(segment_count):
+            seg_end = cursor + seg_width
+            top_segments.append(
+                f'  <path d="M {format_number(cursor)} {top_y} H {format_number(seg_end)}" fill="none" stroke="{suit.banner}" stroke-width="5"/>'
+            )
+            bottom_segments.append(
+                f'  <path d="M {format_number(cursor)} {bottom_y} H {format_number(seg_end)}" fill="none" stroke="{suit.banner}" stroke-width="5"/>'
+            )
+            cursor = seg_end + gap_width
+
+        top_bottom = "\n".join(top_segments + bottom_segments)
+
     return f'''  <rect x="18" y="18" width="714" height="1164" rx="34" fill="url(#paperGradient)" stroke="#1f1b16" stroke-width="5" filter="url(#shadow)"/>
-  <rect x="40" y="40" width="670" height="1120" rx="24" fill="none" stroke="{suit.banner}" stroke-width="4"/>'''
+{side_lines}
+{top_bottom}'''
 
 
 def coin_symbol(suit: Suit, x: float, y: float, scale: float = 1.0, rotate: float = 0) -> str:
