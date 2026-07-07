@@ -5,6 +5,7 @@ import { GAME_MESSAGES } from "../config/messages.js";
 describe("Game Messages", () => {
   it("exposes key static messages", () => {
     // Given static UI messages, when read directly, then canonical text is stable.
+    expect(GAME_MESSAGES.EMPTY_HAND).toBe("No cards in hand");
     expect(GAME_MESSAGES.INVALID_MOVE_GENERIC).toBe(
       "Invalid move. Please try again.",
     );

@@ -3,6 +3,7 @@
  * Main game rendering with table, player hands, and scores
  */
 
+import { GAME_MESSAGES } from "../../config/messages.js";
 import { CardComponent } from "./card.js";
 
 export class GameBoard {
@@ -203,7 +204,7 @@ export class GameBoard {
       // No cards in hand
       const empty = document.createElement("p");
       empty.className = "hand-empty";
-      empty.textContent = isHuman ? "No cards in hand" : "No cards";
+      empty.textContent = GAME_MESSAGES.EMPTY_HAND;
       cardsContainer.appendChild(empty);
     } else if (showFaceUp) {
       // Show face-up, clickable cards (active player, or human in their turn)

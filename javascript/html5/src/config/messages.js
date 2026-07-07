@@ -4,6 +4,7 @@
  */
 
 export const GAME_MESSAGES = {
+  EMPTY_HAND: "No cards in hand",
   INVALID_MOVE_GENERIC: "Invalid move. Please try again.",
   SELECT_ONE_HAND_CARD: "Please select only ONE card from your hand!",
   CARD_NOT_FOUND: "Card not found in hand or table!",
