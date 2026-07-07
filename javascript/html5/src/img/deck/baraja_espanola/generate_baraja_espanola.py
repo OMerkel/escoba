@@ -24,6 +24,14 @@ SHEET_MARGIN_X = 76
 SHEET_MARGIN_Y = 96
 SHEET_GAP_X = 24
 SHEET_GAP_Y = 18
+SUIT_GAP_FRAME_STROKE_WIDTH = 20
+OUTER_CUTLINE_STROKE_WIDTH = 5
+GAP_COUNT_BY_SUIT = {
+    "oros": 0,
+    "copas": 1,
+    "espadas": 2,
+    "bastos": 3,
+}
 
 
 @dataclass(frozen=True)
@@ -106,30 +114,24 @@ def svg_document(body: str, title: str) -> str:
 def card_frame(suit: Suit) -> str:
     """Return the clean frame used by every card face - simplified for small sizes."""
 
-    gaps_by_suit = {
-        "oros": 0,
-        "copas": 1,
-        "espadas": 2,
-        "bastos": 3,
-    }
-    gap_count = gaps_by_suit.get(suit.key, 0)
+    gap_count = GAP_COUNT_BY_SUIT.get(suit.key, 0)
 
-    frame_x = 40
-    frame_y = 40
-    frame_w = 670
-    frame_h = 1120
+    frame_x = 50
+    frame_y = 50
+    frame_w = 650
+    frame_h = 1100
     frame_rx = 24
     frame_left = frame_x
     frame_right = frame_x + frame_w
     frame_top = frame_y
     frame_bottom = frame_y + frame_h
 
-    side_lines = f'''  <path d="M {frame_left} {frame_top + frame_rx} V {frame_bottom - frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
-    <path d="M {frame_right} {frame_top + frame_rx} V {frame_bottom - frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
-    <path d="M {frame_left} {frame_top + frame_rx} A {frame_rx} {frame_rx} 0 0 1 {frame_left + frame_rx} {frame_top}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
-    <path d="M {frame_right - frame_rx} {frame_top} A {frame_rx} {frame_rx} 0 0 1 {frame_right} {frame_top + frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
-    <path d="M {frame_left} {frame_bottom - frame_rx} A {frame_rx} {frame_rx} 0 0 0 {frame_left + frame_rx} {frame_bottom}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
-    <path d="M {frame_right - frame_rx} {frame_bottom} A {frame_rx} {frame_rx} 0 0 0 {frame_right} {frame_bottom - frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="5"/>'''
+    side_lines = f'''  <path d="M {frame_left} {frame_top + frame_rx} V {frame_bottom - frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="{SUIT_GAP_FRAME_STROKE_WIDTH}"/>
+    <path d="M {frame_right} {frame_top + frame_rx} V {frame_bottom - frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="{SUIT_GAP_FRAME_STROKE_WIDTH}"/>
+    <path d="M {frame_left} {frame_top + frame_rx} A {frame_rx} {frame_rx} 0 0 1 {frame_left + frame_rx} {frame_top}" fill="none" stroke="{suit.banner}" stroke-width="{SUIT_GAP_FRAME_STROKE_WIDTH}"/>
+    <path d="M {frame_right - frame_rx} {frame_top} A {frame_rx} {frame_rx} 0 0 1 {frame_right} {frame_top + frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="{SUIT_GAP_FRAME_STROKE_WIDTH}"/>
+    <path d="M {frame_left} {frame_bottom - frame_rx} A {frame_rx} {frame_rx} 0 0 0 {frame_left + frame_rx} {frame_bottom}" fill="none" stroke="{suit.banner}" stroke-width="{SUIT_GAP_FRAME_STROKE_WIDTH}"/>
+    <path d="M {frame_right - frame_rx} {frame_bottom} A {frame_rx} {frame_rx} 0 0 0 {frame_right} {frame_bottom - frame_rx}" fill="none" stroke="{suit.banner}" stroke-width="{SUIT_GAP_FRAME_STROKE_WIDTH}"/>'''
 
     inner_left = frame_left + frame_rx
     inner_right = frame_right - frame_rx
@@ -137,8 +139,8 @@ def card_frame(suit: Suit) -> str:
     bottom_y = frame_bottom
 
     if gap_count == 0:
-        top_bottom = f'''  <path d="M {inner_left} {top_y} H {inner_right}" fill="none" stroke="{suit.banner}" stroke-width="5"/>
-  <path d="M {inner_left} {bottom_y} H {inner_right}" fill="none" stroke="{suit.banner}" stroke-width="5"/>'''
+        top_bottom = f'''  <path d="M {inner_left} {top_y} H {inner_right}" fill="none" stroke="{suit.banner}" stroke-width="{SUIT_GAP_FRAME_STROKE_WIDTH}"/>
+  <path d="M {inner_left} {bottom_y} H {inner_right}" fill="none" stroke="{suit.banner}" stroke-width="{SUIT_GAP_FRAME_STROKE_WIDTH}"/>'''
     else:
         total_width = inner_right - inner_left
         segment_count = gap_count + 1
@@ -151,16 +153,16 @@ def card_frame(suit: Suit) -> str:
         for _ in range(segment_count):
             seg_end = cursor + seg_width
             top_segments.append(
-                f'  <path d="M {format_number(cursor)} {top_y} H {format_number(seg_end)}" fill="none" stroke="{suit.banner}" stroke-width="5"/>'
+                f'  <path d="M {format_number(cursor)} {top_y} H {format_number(seg_end)}" fill="none" stroke="{suit.banner}" stroke-width="{SUIT_GAP_FRAME_STROKE_WIDTH}"/>'
             )
             bottom_segments.append(
-                f'  <path d="M {format_number(cursor)} {bottom_y} H {format_number(seg_end)}" fill="none" stroke="{suit.banner}" stroke-width="5"/>'
+                f'  <path d="M {format_number(cursor)} {bottom_y} H {format_number(seg_end)}" fill="none" stroke="{suit.banner}" stroke-width="{SUIT_GAP_FRAME_STROKE_WIDTH}"/>'
             )
             cursor = seg_end + gap_width
 
         top_bottom = "\n".join(top_segments + bottom_segments)
 
-    return f'''  <rect x="18" y="18" width="714" height="1164" rx="34" fill="url(#paperGradient)" stroke="#1f1b16" stroke-width="5" filter="url(#shadow)"/>
+    return f'''  <rect x="18" y="18" width="714" height="1164" rx="34" fill="url(#paperGradient)" stroke="#1f1b16" stroke-width="{OUTER_CUTLINE_STROKE_WIDTH}" filter="url(#shadow)"/>
 {side_lines}
 {top_bottom}'''
 

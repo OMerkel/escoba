@@ -11,18 +11,18 @@
     </filter>
   </defs>
     <rect x="18" y="18" width="714" height="1164" rx="34" fill="url(#paperGradient)" stroke="#1f1b16" stroke-width="5" filter="url(#shadow)"/>
-  <path d="M 40 64 V 1136" fill="none" stroke="#39596f" stroke-width="5"/>
-    <path d="M 710 64 V 1136" fill="none" stroke="#39596f" stroke-width="5"/>
-    <path d="M 40 64 A 24 24 0 0 1 64 40" fill="none" stroke="#39596f" stroke-width="5"/>
-    <path d="M 686 40 A 24 24 0 0 1 710 64" fill="none" stroke="#39596f" stroke-width="5"/>
-    <path d="M 40 1136 A 24 24 0 0 0 64 1160" fill="none" stroke="#39596f" stroke-width="5"/>
-    <path d="M 686 1160 A 24 24 0 0 0 710 1136" fill="none" stroke="#39596f" stroke-width="5"/>
-  <path d="M 64 40 H 207.3333" fill="none" stroke="#39596f" stroke-width="5"/>
-  <path d="M 303.3333 40 H 446.6667" fill="none" stroke="#39596f" stroke-width="5"/>
-  <path d="M 542.6667 40 H 686" fill="none" stroke="#39596f" stroke-width="5"/>
-  <path d="M 64 1160 H 207.3333" fill="none" stroke="#39596f" stroke-width="5"/>
-  <path d="M 303.3333 1160 H 446.6667" fill="none" stroke="#39596f" stroke-width="5"/>
-  <path d="M 542.6667 1160 H 686" fill="none" stroke="#39596f" stroke-width="5"/>
+  <path d="M 50 74 V 1126" fill="none" stroke="#39596f" stroke-width="20"/>
+    <path d="M 700 74 V 1126" fill="none" stroke="#39596f" stroke-width="20"/>
+    <path d="M 50 74 A 24 24 0 0 1 74 50" fill="none" stroke="#39596f" stroke-width="20"/>
+    <path d="M 676 50 A 24 24 0 0 1 700 74" fill="none" stroke="#39596f" stroke-width="20"/>
+    <path d="M 50 1126 A 24 24 0 0 0 74 1150" fill="none" stroke="#39596f" stroke-width="20"/>
+    <path d="M 676 1150 A 24 24 0 0 0 700 1126" fill="none" stroke="#39596f" stroke-width="20"/>
+  <path d="M 74 50 H 210.6667" fill="none" stroke="#39596f" stroke-width="20"/>
+  <path d="M 306.6667 50 H 443.3333" fill="none" stroke="#39596f" stroke-width="20"/>
+  <path d="M 539.3333 50 H 676" fill="none" stroke="#39596f" stroke-width="20"/>
+  <path d="M 74 1150 H 210.6667" fill="none" stroke="#39596f" stroke-width="20"/>
+  <path d="M 306.6667 1150 H 443.3333" fill="none" stroke="#39596f" stroke-width="20"/>
+  <path d="M 539.3333 1150 H 676" fill="none" stroke="#39596f" stroke-width="20"/>
 <g transform="translate(100 140) rotate(0)">
   <path d="M 0 -95.2 L 13.6 -29.92 L 0 19.04 L -13.6 -29.92 Z" fill="#bdd0dc" stroke="#243746" stroke-width="4.08"/>
   <rect x="-35.36" y="13.6" width="71" height="12" rx="4" fill="#436b83" stroke="#243746" stroke-width="4.08"/>
