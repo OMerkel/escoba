@@ -50,7 +50,7 @@
       "src": "img/icons/escoba256.png",
       "sizes": "256x256",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "categories": ["games"],
